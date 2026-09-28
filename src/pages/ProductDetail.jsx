@@ -12,6 +12,18 @@ import { cn } from "@/lib/utils";
 import { researchForIngredient } from "@/lib/ingredientResearch";
 import { useSEO } from "@/hooks/useSEO";
 
+// Search results show ~155-160 characters. Trim the product blurb at a word
+// boundary and always keep the price + brand name on the end of the line.
+function productMetaDescription(product) {
+  const suffix = ` ${formatNZD(product.price)} — shop ${product.name} at Korzavo.`;
+  const room = 160 - suffix.length;
+  const text = String(product.description || "").replace(/\s+/g, " ").trim();
+  if (text.length <= room) return text + suffix;
+  const cut = text.slice(0, room - 1);
+  const atWord = cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:—-]+$/, "");
+  return `${atWord}…${suffix}`;
+}
+
 export default function ProductDetail() {
   const { slug } = useParams();
   const { data: product, isLoading } = useProduct(slug);
@@ -21,10 +33,9 @@ export default function ProductDetail() {
 
   useSEO({
     title: product ? product.name : "Product",
-    description: product
-      ? `${product.description} ${formatNZD(product.price)} — shop ${product.name} at Korzavo, performance nutrition and supplements.`.slice(0, 160)
-      : undefined,
+    description: product ? productMetaDescription(product) : undefined,
     path: `/product/${slug}`,
+    noindex: !product && !isLoading,
     image: product?.image ? `${SITE_URL}${product.image}` : undefined,
     type: "product",
     structuredData: product

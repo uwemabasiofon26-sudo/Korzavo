@@ -6,14 +6,14 @@ import explovexBottle from "@/assets/products/korzavo-explovex.jpg";
 import explovexFacts from "@/assets/products/korzavo-explovex-facts.jpg";
 import korzixBottle from "@/assets/products/korzavo-korzix.jpg";
 import korzixFacts from "@/assets/products/korzavo-korzix-facts.jpg";
-import alphaCreatine from "@/assets/products/alpha-creatine.jpg";
+import creatineBottle from "@/assets/products/korzavo-creatine.jpg";
 import creatineFacts from "@/assets/products/korzavo-creatine-facts.jpg";
-import alphaGrow from "@/assets/products/alpha-grow.jpg";
-import alphaGlycoload from "@/assets/products/alpha-glycoload.jpg";
-import alphaStack from "@/assets/products/alpha-stack.jpg";
-import alphaNitroxar from "@/assets/products/alpha-nitroxar.jpg";
+import growBottle from "@/assets/products/korzavo-grow.jpg";
+import glycoloadBottle from "@/assets/products/korzavo-glycoload.jpg";
+import stackBottle from "@/assets/products/korzavo-stack.jpg";
+import nitroxarBottle from "@/assets/products/korzavo-nitroxar.jpg";
 import nitroxarFacts from "@/assets/products/korzavo-nitroxar-facts.jpg";
-import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
+import nightRecoveryBottle from "@/assets/products/korzavo-night-recovery.jpg";
 import nightRecoveryFacts from "@/assets/products/korzavo-night-recovery-facts.jpg";
 
 // Shape reference (every field used somewhere in the UI):
@@ -99,7 +99,7 @@ export const PRODUCTS = [
     description:
       "Creatine and electrolytes for strength, performance and hydration — Raspberry Lemonade flavour, easy to mix any time of day.",
     category: "supplement",
-    image: alphaCreatine,
+    image: creatineBottle,
     supplement_facts_image: creatineFacts,
     price: 44.99,
     benefits: [
@@ -126,7 +126,7 @@ export const PRODUCTS = [
     description:
       "A smooth, creamy 25g protein blend designed for easy mixing and real recovery — Chocolate Hazelnut flavour, no compromise.",
     category: "supplement",
-    image: alphaGrow,
+    image: growBottle,
     price: 89.99,
     benefits: [
       "25g of protein per serving",
@@ -148,7 +148,7 @@ export const PRODUCTS = [
     description:
       "A fast-digesting maltodextrin carbohydrate powder for athletes and gym users who need convenient training fuel — Raspberry Lemonade flavour, mixes easily with water, use before, during or after training.",
     category: "supplement",
-    image: alphaGlycoload,
+    image: glycoloadBottle,
     // Launch pricing: selling at 39.99, regular RRP 44.99. The
     // compare_at_price renders as a struck-through "was" price next to the
     // live price; remove this field to end the launch offer.
@@ -186,7 +186,7 @@ export const PRODUCTS = [
     ],
     closing_line: "PERFORM STRONGER. FEEL STRONGER. EVERYWHERE.",
     category: "supplement",
-    image: alphaNitroxar,
+    image: nitroxarBottle,
     supplement_facts_image: nitroxarFacts,
     price: 79,
     benefits: [
@@ -222,7 +222,7 @@ export const PRODUCTS = [
     description:
       "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery — fully disclosed, no proprietary blends.",
     category: "supplement",
-    image: alphaNightRecovery,
+    image: nightRecoveryBottle,
     supplement_facts_image: nightRecoveryFacts,
     price: 79,
     benefits: [
@@ -252,7 +252,7 @@ export const PRODUCTS = [
     description:
       "EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
     category: "stack",
-    image: alphaStack,
+    image: stackBottle,
     price: 259.99,
     sort_order: 8,
   },

@@ -116,10 +116,10 @@ export default function Home() {
           className="w-full px-5 md:px-10 py-10 md:py-14"
         >
           <div className="mx-auto max-w-[1400px] text-center">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-av-alloy text-balance">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-av-alloy text-balance">
               Fuel Your Strength.<br />
               <span className="text-av-gold">Elevate Your Performance.</span>
-            </h2>
+            </h1>
             <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link to="/shop" className="group inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
                 Shop The Range <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

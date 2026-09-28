@@ -1,4 +1,4 @@
-# Korzavo — https://alphavalour.com
+# Korzavo — https://korzavo.com
 # Performance nutrition and supplement brand.
 
 # Default: everything is crawlable.
@@ -69,4 +69,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://alphavalour.com/sitemap.xml
+Sitemap: https://korzavo.com/sitemap.xml

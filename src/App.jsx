@@ -17,27 +17,36 @@ import Checkout from '@/pages/Checkout';
 import ThankYou from '@/pages/ThankYou';
 import Policy from '@/pages/Policy';
 
+// The route table on its own (no router/providers), so the same routes can be
+// rendered in the browser (BrowserRouter, below) and at build time
+// (StaticRouter, in src/entry-server.jsx) for prerendering.
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/product/:slug" element={<ProductDetail />} />
+        <Route path="/performance-nutrition" element={<PerformanceNutrition />} />
+        <Route path="/stack" element={<Stack />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/policy" element={<Policy />} />
+      </Route>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClientInstance}>
       <Router>
         <ScrollToTop />
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/product/:slug" element={<ProductDetail />} />
-            <Route path="/performance-nutrition" element={<PerformanceNutrition />} />
-            <Route path="/stack" element={<Stack />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/thank-you" element={<ThankYou />} />
-            <Route path="/policy" element={<Policy />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <AppRoutes />
       </Router>
       <Toaster />
     </QueryClientProvider>

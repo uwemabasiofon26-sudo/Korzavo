@@ -37,7 +37,7 @@ export default function Contact() {
         {/* Info cards */}
         <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-3 gap-px bg-av-teal/30 border border-av-teal/30">
           {[
-            { icon: Mail, label: "Email", value: "support@alphavalour.com" },
+            { icon: Mail, label: "Email", value: "support@korzavo.com" },
             { icon: MapPin, label: "Location", value: "Auckland, New Zealand" },
             { icon: MessageSquare, label: "Hours", value: "Mon–Fri · 9am–5pm NZST" },
           ].map((c, i) => (
