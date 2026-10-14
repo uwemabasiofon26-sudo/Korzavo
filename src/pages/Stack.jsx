@@ -25,7 +25,7 @@ export default function Stack() {
   // NITROXAR and NIGHT RECOVERY, which aren't part of this bundle).
   const STACK_PRODUCT_IDS = ["explovex", "korzix", "creatine", "grow", "glycoload"];
   const supps = (products || []).filter((p) => STACK_PRODUCT_IDS.includes(p.id));
-  const stack = (products || []).find((p) => p.category === "stack");
+  const stack = (products || []).find((p) => p.id === "complete-stack");
 
   const pack = (p) => {
     setPacked((prev) => (prev.includes(p.id) ? prev : [...prev, p.id]));

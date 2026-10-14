@@ -8,6 +8,9 @@ export const CURRENCY = "NZD";
 // the live domain changes.
 export const SITE_URL = "https://korzavo.com";
 export const SITE_NAME = "Korzavo";
+// General enquiries go to info@, customer service (orders, returns) to support@.
+export const EMAIL_GENERAL = "info@korzavo.com";
+export const EMAIL_SUPPORT = "support@korzavo.com";
 export const BRAND_TAGLINE = "Performance Nutrition & Supplements";
 
 export const formatNZD = (n) => `$${Number(n || 0).toFixed(2)}`;

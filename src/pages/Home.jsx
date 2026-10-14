@@ -62,7 +62,7 @@ export default function Home() {
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const featured = supplements;
-  const stack = all.find((p) => p.category === "stack");
+  const stack = all.find((p) => p.id === "complete-stack");
   const stackPrice = stack?.price || 259.99;
   // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
   // the line-through price and "Save $X" text separately, so they can't
