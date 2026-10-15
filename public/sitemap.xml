@@ -11,6 +11,8 @@
   <url>
     <loc>https://korzavo.com/shop</loc>
     <lastmod>2026-09-28</lastmod>
+    <loc>https://korzavo.com/shop</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -18,11 +20,15 @@
   <url>
     <loc>https://korzavo.com/performance-nutrition</loc>
     <lastmod>2026-09-28</lastmod>
+    <loc>https://korzavo.com/performance-nutrition</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
+    <loc>https://korzavo.com/stack</loc>
+    <lastmod>2026-09-28</lastmod>
     <loc>https://korzavo.com/stack</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -101,8 +107,16 @@
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <loc>https://korzavo.com/product/alpha-24-stack</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://korzavo.com/product/night-recovery-3-bottles</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
     <loc>https://korzavo.com/product/night-recovery-3-bottles</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -119,11 +133,15 @@
   <url>
     <loc>https://korzavo.com/contact</loc>
     <lastmod>2026-09-28</lastmod>
+    <loc>https://korzavo.com/contact</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
+    <loc>https://korzavo.com/policy</loc>
+    <lastmod>2026-09-28</lastmod>
     <loc>https://korzavo.com/policy</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>yearly</changefreq>

@@ -20,55 +20,16 @@ export default function Stack() {
   const { data: products } = useProducts();
   const { addItem } = useCart();
   const [packed, setPacked] = useState([]);
-  const [addedCount, setAddedCount] = useState(0);
-  const addedTimer = useRef(null);
-  useEffect(() => () => clearTimeout(addedTimer.current), []);
 
-  // Floating copy of the summary bar, shown while the inline one is off-screen.
-  // (CSS `position: sticky` doesn't work here because <body> clips overflow.)
-  const inlineBarRef = useRef(null);
-  const [inlineBarVisible, setInlineBarVisible] = useState(true);
-  useEffect(() => {
-    const el = inlineBarRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(([entry]) => setInlineBarVisible(entry.isIntersecting), { threshold: 0.2 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  // The stack is a fixed bundle of these five products specifically — not
+  // every product in the "supplement" category (which now also includes
+  // NITROXAR and ALPHA NIGHT RECOVERY, which aren't part of this bundle).
+  const STACK_PRODUCT_IDS = ["explovex", "korzix", "creatine", "grow", "glycoload"];
+  const supps = (products || []).filter((p) => STACK_PRODUCT_IDS.includes(p.id));
+  const stack = (products || []).find((p) => p.category === "stack");
 
-  // The Stack Builder offers every individual product (all non-bundle items),
-  // so customers can build their own system from the full range.
-  const builderProducts = (products || []).filter((p) => p.category !== "stack");
-  const stack = (products || []).find((p) => p.id === "complete-stack");
-
-  // Click a product to pack it; click it again to take it back out.
-  const togglePack = (p) => {
-    if (p.inStock === false) return;
-    setAddedCount(0);
-    setPacked((prev) => (prev.includes(p.id) ? prev.filter((id) => id !== p.id) : [...prev, p.id]));
-  };
-
-  const packedProducts = builderProducts.filter((p) => packed.includes(p.id));
-  const packedTotal = packedProducts.reduce((sum, p) => sum + p.price, 0);
-  const selectableProducts = builderProducts.filter((p) => p.inStock !== false);
-  const allPacked = selectableProducts.length > 0 && packed.length === selectableProducts.length;
-
-  const addPackedToCart = () => {
-    if (!packedProducts.length) return;
-    packedProducts.forEach((p) =>
-      addItem({
-        productId: p.id,
-        name: p.name,
-        slug: p.slug,
-        image: p.image,
-        price: p.price,
-        purchaseType: "one_time",
-      })
-    );
-    setAddedCount(packedProducts.length);
-    setPacked([]);
-    clearTimeout(addedTimer.current);
-    addedTimer.current = setTimeout(() => setAddedCount(0), 6000);
+  const pack = (p) => {
+    setPacked((prev) => (prev.includes(p.id) ? prev : [...prev, p.id]));
   };
 
   const addStack = () => {

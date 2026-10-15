@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Mail, LifeBuoy, MapPin, MessageSquare } from "lucide-react";
+import { Mail, LifeBuoy, MapPin, MessageSquare } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { CURRENCY, EMAIL_GENERAL, EMAIL_SUPPORT } from "@/lib/brand";
 import { CURRENCY, EMAIL_GENERAL, EMAIL_SUPPORT } from "@/lib/brand";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -31,10 +33,12 @@ export default function Contact() {
           </h1>
           <p className="mt-4 md:mt-5 text-sm md:text-base text-av-alloy/70 max-w-xl">
             Questions about products or your order? We're here to help. Use {EMAIL_GENERAL} for general enquiries and {EMAIL_SUPPORT} for customer service.
+            Questions about products or your order? We're here to help. Use {EMAIL_GENERAL} for general enquiries and {EMAIL_SUPPORT} for customer service.
           </p>
         </ScrollReveal>
 
         {/* Info cards */}
+        <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-av-teal/30 border border-av-teal/30">
         <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-av-teal/30 border border-av-teal/30">
           {[
             { icon: Mail, label: "General Enquiries", value: EMAIL_GENERAL, href: `mailto:${EMAIL_GENERAL}` },
@@ -45,6 +49,11 @@ export default function Contact() {
             <ScrollReveal key={i} delay={i * 0.08} className="bg-av-deep p-6 md:p-8">
               <c.icon className="h-6 w-6 text-av-gold mb-4" />
               <p className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/50">{c.label}</p>
+              {c.href ? (
+                <a href={c.href} className="block text-av-alloy mt-1 text-sm break-words hover:text-av-gold transition-colors">{c.value}</a>
+              ) : (
+                <p className="text-av-alloy mt-1 text-sm break-words">{c.value}</p>
+              )}
               {c.href ? (
                 <a href={c.href} className="block text-av-alloy mt-1 text-sm break-words hover:text-av-gold transition-colors">{c.value}</a>
               ) : (
