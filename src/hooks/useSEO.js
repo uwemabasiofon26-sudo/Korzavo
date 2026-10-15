@@ -1,7 +1,32 @@
 import { useEffect } from "react";
 import { SITE_URL, SITE_NAME } from "@/lib/brand";
 
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+export const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+
+/**
+ * Turns the options passed to useSEO() into the final tag values. Used by the
+ * browser (below) and by the build-time prerender (src/entry-server.jsx →
+ * scripts/prerender.mjs), so both always produce identical tags.
+ */
+export function resolveSEO({
+  title,
+  description,
+  path = "/",
+  image = DEFAULT_IMAGE,
+  type = "website",
+  noindex = false,
+  structuredData = null,
+}) {
+  return {
+    fullTitle: title ? `${title} | ${SITE_NAME}` : SITE_NAME,
+    description,
+    url: `${SITE_URL}${path}`,
+    image,
+    type,
+    noindex,
+    structuredData,
+  };
+}
 
 /**
  * Sets per-page <title>, meta description, canonical link, Open Graph /
@@ -9,10 +34,10 @@ const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
  * structured-data block — all via direct DOM updates, so no extra
  * dependency (react-helmet etc.) is required.
  *
- * This is a client-side-rendered SPA, so these updates only reach crawlers
- * that execute JavaScript (Googlebot, Bingbot, and most modern AI
- * crawlers/browsing agents do). index.html carries strong static
- * fallback tags for anything that only reads the initial HTML.
+ * In the browser these updates are applied after render. At build time the
+ * same values are captured during server rendering and written straight into
+ * each page's static HTML (see scripts/prerender.mjs), so crawlers that do
+ * not run JavaScript still get correct per-page tags.
  *
  * @param {object} opts
  * @param {string} opts.title - Page title (site name is appended automatically).
@@ -32,28 +57,36 @@ export function useSEO({
   noindex = false,
   structuredData = null,
 }) {
+  // Build-time server render only (this branch is removed from the browser
+  // bundle): hand the resolved values to the prerender script.
+  if (import.meta.env.SSR) {
+    globalThis.__KORZAVO_SEO__ = resolveSEO({
+      title, description, path, image, type, noindex, structuredData,
+    });
+  }
+
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-    document.title = fullTitle;
+    const seo = resolveSEO({
+      title, description, path, image, type, noindex, structuredData,
+    });
+    document.title = seo.fullTitle;
 
-    const url = `${SITE_URL}${path}`;
+    upsertMeta("name", "description", seo.description);
+    upsertMeta("name", "robots", seo.noindex ? "noindex, nofollow" : "index, follow");
 
-    upsertMeta("name", "description", description);
-    upsertMeta("name", "robots", noindex ? "noindex, nofollow" : "index, follow");
-
-    upsertMeta("property", "og:title", fullTitle);
-    upsertMeta("property", "og:description", description);
-    upsertMeta("property", "og:url", url);
-    upsertMeta("property", "og:image", image);
-    upsertMeta("property", "og:type", type);
+    upsertMeta("property", "og:title", seo.fullTitle);
+    upsertMeta("property", "og:description", seo.description);
+    upsertMeta("property", "og:url", seo.url);
+    upsertMeta("property", "og:image", seo.image);
+    upsertMeta("property", "og:type", seo.type);
     upsertMeta("property", "og:site_name", SITE_NAME);
 
-    upsertMeta("name", "twitter:title", fullTitle);
-    upsertMeta("name", "twitter:description", description);
-    upsertMeta("name", "twitter:image", image);
+    upsertMeta("name", "twitter:title", seo.fullTitle);
+    upsertMeta("name", "twitter:description", seo.description);
+    upsertMeta("name", "twitter:image", seo.image);
 
-    upsertCanonical(url);
-    upsertStructuredData(structuredData);
+    upsertCanonical(seo.url);
+    upsertStructuredData(seo.structuredData);
 
     // No cleanup: the next page's useSEO call overwrites these same tags,
     // so there's never a stale flash between routes in this SPA.

@@ -2,6 +2,39 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/((?!api/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "alphavalour.com"
+        }
+      ],
+      "destination": "https://korzavo.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/((?!api/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.alphavalour.com"
+        }
+      ],
+      "destination": "https://korzavo.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/((?!api/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.korzavo.com"
+        }
+      ],
+      "destination": "https://korzavo.com/$1",
+      "permanent": true
+    },
+    {
       "source": "/product/fuel",
       "destination": "/product/glycoload",
       "permanent": true
@@ -15,12 +48,22 @@
       "source": "/product/alpha-night-recovery",
       "destination": "/product/night-recovery",
       "permanent": true
+    },
+    {
+      "source": "/product/havoc",
+      "destination": "/product/explovex",
+      "permanent": true
+    },
+    {
+      "source": "/product/drive",
+      "destination": "/product/korzix",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "destination": "/app-shell.html"
     }
   ]
 }

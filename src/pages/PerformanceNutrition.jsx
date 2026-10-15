@@ -41,7 +41,7 @@ export default function PerformanceNutrition() {
           {supps.map((p, i) => (
             <div key={p.id} className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 ? "md:[direction:rtl]" : ""}`}>
               <ScrollReveal className="[direction:ltr]">
-                <div className="frame-corner overflow-hidden bg-av-teal/20 aspect-[4/5]">
+                <div className="frame-corner relative overflow-hidden bg-av-teal/20 aspect-[4/5]">
                   <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full" />
                 </div>
               </ScrollReveal>

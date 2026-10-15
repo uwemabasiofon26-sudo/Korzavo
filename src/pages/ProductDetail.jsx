@@ -10,7 +10,20 @@ import FuelBar from "@/components/FuelBar";
 import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { researchForIngredient } from "@/lib/ingredientResearch";
+import IngredientStory from "@/components/IngredientStory";
 import { useSEO } from "@/hooks/useSEO";
+
+// Search results show ~155-160 characters. Trim the product blurb at a word
+// boundary and always keep the price + brand name on the end of the line.
+function productMetaDescription(product) {
+  const suffix = ` ${formatNZD(product.price)} — shop ${product.name} at Korzavo.`;
+  const room = 160 - suffix.length;
+  const text = String(product.meta_description || product.description || "").replace(/\s+/g, " ").trim();
+  if (text.length <= room) return text + suffix;
+  const cut = text.slice(0, room - 1);
+  const atWord = cut.slice(0, cut.lastIndexOf(" ")).replace(/[\s,;:—-]+$/, "");
+  return `${atWord}…${suffix}`;
+}
 
 export default function ProductDetail() {
   const { slug } = useParams();
@@ -21,10 +34,9 @@ export default function ProductDetail() {
 
   useSEO({
     title: product ? product.name : "Product",
-    description: product
-      ? `${product.description} ${formatNZD(product.price)} — shop ${product.name} at Korzavo, performance nutrition and supplements.`.slice(0, 160)
-      : undefined,
+    description: product ? productMetaDescription(product) : undefined,
     path: `/product/${slug}`,
+    noindex: !product && !isLoading,
     image: product?.image ? `${SITE_URL}${product.image}` : undefined,
     type: "product",
     structuredData: product
@@ -32,7 +44,7 @@ export default function ProductDetail() {
           "@context": "https://schema.org",
           "@type": "Product",
           name: product.name,
-          description: product.description,
+          description: product.meta_description || product.description,
           image: `${SITE_URL}${product.image}`,
           sku: product.id,
           brand: { "@type": "Brand", name: "Korzavo" },
@@ -99,7 +111,7 @@ export default function ProductDetail() {
               // Plain <img>, not the cropping <Image> component: this is a
               // pre-designed, text-heavy facts graphic that must display in
               // full and uncropped, at its own natural aspect ratio.
-              <ScrollReveal delay={0.1} className="mt-6 frame-corner overflow-hidden bg-av-teal/20">
+              <ScrollReveal delay={0.1} className="mt-6 frame-corner relative overflow-hidden bg-av-teal/20">
                 <img
                   src={product.supplement_facts_image}
                   alt={`${product.name} supplement facts`}
@@ -113,8 +125,8 @@ export default function ProductDetail() {
           {/* BLUEPRINT */}
           <div className="space-y-10">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">{product.tagline}</p>
-              <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-av-alloy">{product.name}</h1>
+              <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">{product.headline || product.tagline}</p>
+              <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-av-alloy">{product.display_name || product.name}</h1>
               <p className="mt-5 text-av-alloy/70 leading-relaxed text-lg">{product.description}</p>
             </div>
 
@@ -143,6 +155,11 @@ export default function ProductDetail() {
               >
                 {added ? <><Check className="h-5 w-5" /> Added</> : <>Add to Cart · {formatNZD(price)}</>}
               </button>
+            )}
+
+            {/* ALLERGEN NOTE (optional) — kept right next to the purchase button */}
+            {product.allergen && (
+              <p className="-mt-6 text-sm font-semibold text-av-alloy/80">{product.allergen}</p>
             )}
 
             {/* LONG DESCRIPTION (optional extra paragraphs) */}
@@ -176,13 +193,38 @@ export default function ProductDetail() {
               </p>
             )}
 
+            {/* BUNDLE CONTENTS (optional) */}
+            {product.includes?.length > 0 && (
+              <div>
+                <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">What’s Included</h2>
+                <div className="border border-av-teal/40">
+                  {product.includes.map((inc) => {
+                    const item = (all || []).find((x) => x.id === inc.id);
+                    if (!item) return null;
+                    return (
+                      <Link
+                        key={inc.id}
+                        to={`/product/${item.slug}`}
+                        className="flex items-center justify-between px-5 py-3 text-sm border-b border-av-teal/30 last:border-0 text-av-alloy/80 hover:text-av-gold transition-colors"
+                      >
+                        <span>{item.name}</span>
+                        <span className="text-av-alloy/50">× {inc.quantity}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {/* SPECS */}
-            <div className="grid grid-cols-2 gap-px bg-av-teal/30 border border-av-teal/30">
-              {product.servings && <Spec label="Servings" value={product.servings} />}
-              {product.size && <Spec label="Size" value={product.size} />}
-              {product.usage && <Spec label="Usage" value={product.usage} full />}
-              {product.fit && <Spec label="Fit" value={product.fit} full />}
-            </div>
+            {(product.servings || product.size || product.usage || product.fit) && (
+              <div className="grid grid-cols-2 gap-px bg-av-teal/30 border border-av-teal/30">
+                {product.servings && <Spec label="Servings" value={product.servings} />}
+                {product.size && <Spec label="Size" value={product.size} />}
+                {product.usage && <Spec label="Usage" value={product.usage} full />}
+                {product.fit && <Spec label="Fit" value={product.fit} full />}
+              </div>
+            )}
 
             {/* INGREDIENTS / FORMULA */}
             {/* Always show the plain-text ingredient list alongside the
@@ -202,8 +244,9 @@ export default function ProductDetail() {
               </div>
             )}
 
-            {/* SCIENTIFIC RESEARCH */}
-            {product.ingredients?.length > 0 && (
+            {/* SCIENTIFIC RESEARCH — products with their own ingredient story
+                (see IngredientStory below) already cover each ingredient. */}
+            {product.ingredients?.length > 0 && !product.story && (
               <div>
                 <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">Scientific Research</h2>
                 <div className="space-y-4">
@@ -223,6 +266,9 @@ export default function ProductDetail() {
           </div>
         </div>
 
+        {/* INGREDIENT STORY (optional, per product) */}
+        <IngredientStory product={product} />
+
         {/* RELATED */}
         {related.length > 0 && (
           <section className="mt-24 md:mt-32">
@@ -230,7 +276,7 @@ export default function ProductDetail() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-10">
               {related.map((p) => (
                 <Link key={p.id} to={`/product/${p.slug}`} className="group">
-                  <div className="frame-corner aspect-[4/5] overflow-hidden bg-av-teal/20">
+                  <div className="frame-corner relative aspect-[4/5] overflow-hidden bg-av-teal/20">
                     <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="mt-4 flex justify-between items-center">

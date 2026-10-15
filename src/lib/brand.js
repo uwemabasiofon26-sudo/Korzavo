@@ -2,10 +2,15 @@ import korzavoLogo from "@/assets/brand/korzavo-logo.png";
 
 export const LOGO_URL = korzavoLogo;
 export const CURRENCY = "NZD";
-// Domain stays alphavalour.com for now — the company plans to change the
-// domain separately later. Only the brand/display name is changing here.
-export const SITE_URL = "https://alphavalour.com";
+// SITE_URL must match the domain the site is actually served from — it feeds
+// canonical URLs, Open Graph tags and structured data. Update it (plus
+// index.html, public/sitemap.xml, public/robots.txt and public/llms.txt) when
+// the live domain changes.
+export const SITE_URL = "https://korzavo.com";
 export const SITE_NAME = "Korzavo";
+// General enquiries go to info@, customer service (orders, returns) to support@.
+export const EMAIL_GENERAL = "info@korzavo.com";
+export const EMAIL_SUPPORT = "support@korzavo.com";
 export const BRAND_TAGLINE = "Performance Nutrition & Supplements";
 
 export const formatNZD = (n) => `$${Number(n || 0).toFixed(2)}`;

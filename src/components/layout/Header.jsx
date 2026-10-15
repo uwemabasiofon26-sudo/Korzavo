@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ShoppingBag, ChevronDown, Plus, Minus } from "lucide-react";
 import Logo from "@/components/Logo";
-import { NAV_LINKS } from "@/lib/brand";
+import { NAV_LINKS, formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
 import { useProducts } from "@/hooks/useProducts";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileProducts, setMobileProducts] = useState(false);
-  const { count } = useCart();
+  const { count, addedTick, recentlyAdded, clearRecentlyAdded } = useCart();
+  const reduceMotion = useReducedMotion();
   const { data: products } = useProducts();
   const location = useLocation();
 
@@ -26,12 +27,18 @@ export default function Header() {
 
   useEffect(() => setOpen(false), [location.pathname]);
 
+  // Opening the cart ends the "recently added" glow.
+  useEffect(() => {
+    if (location.pathname === "/cart") clearRecentlyAdded();
+  }, [location.pathname, clearRecentlyAdded]);
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => (document.body.style.overflow = "");
   }, [open]);
 
   const productLinks = (products || []).filter((p) => p.category !== "stack");
+  const bundleLinks = (products || []).filter((p) => p.category === "stack");
 
   return (
     <>
@@ -68,7 +75,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-av-deep border border-av-teal/50 rounded-lg overflow-hidden shadow-2xl"
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 max-h-[80vh] overflow-y-auto bg-av-deep border border-av-teal/50 rounded-lg overflow-hidden shadow-2xl"
                   >
                     {productLinks.map((p) => (
                       <Link
@@ -80,6 +87,23 @@ export default function Header() {
                         <span className="text-[10px] uppercase tracking-[0.15em] text-av-alloy/70">{p.category}</span>
                       </Link>
                     ))}
+                    {bundleLinks.length > 0 && (
+                      <>
+                        <div className="px-5 py-2 text-[10px] uppercase tracking-[0.25em] text-av-gold bg-av-teal/20 border-y border-av-teal/40">
+                          Stacks &amp; Bundles
+                        </div>
+                        {bundleLinks.map((p) => (
+                          <Link
+                            key={p.id}
+                            to={`/product/${p.slug}`}
+                            className="flex items-center justify-between gap-3 px-5 py-3 text-sm text-av-alloy/80 hover:bg-av-teal/40 hover:text-av-gold transition-colors border-b border-av-teal/20 last:border-0"
+                          >
+                            <span>{p.name}</span>
+                            <span className="text-[10px] uppercase tracking-[0.15em] text-av-gold/80 shrink-0">{formatNZD(p.price)}</span>
+                          </Link>
+                        ))}
+                      </>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -96,13 +120,41 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <Link to="/cart" className="relative z-50 text-av-alloy hover:text-av-gold transition-colors">
-              <ShoppingBag className="h-5 w-5" />
-              {count > 0 && (
-                <span className="absolute -top-2 -right-2 grid place-items-center h-4 w-4 rounded-full bg-av-gold text-[10px] font-bold text-av-deep">
-                  {count}
-                </span>
+            <Link
+              to="/cart"
+              aria-label={count > 0 ? `Cart, ${count} item${count === 1 ? "" : "s"}` : "Cart"}
+              className={cn(
+                "relative z-50 grid place-items-center h-9 w-9 -mr-2 transition-colors",
+                recentlyAdded ? "text-av-gold" : "text-av-alloy hover:text-av-gold"
               )}
+            >
+              {/* Radiating rings while an item was recently added */}
+              {recentlyAdded && (
+                <>
+                  <span aria-hidden="true" className="absolute inset-0 rounded-full bg-av-gold/40 motion-safe:animate-ping" />
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full bg-av-gold/30 motion-safe:animate-ping"
+                    style={{ animationDelay: "0.6s" }}
+                  />
+                  <span aria-hidden="true" className="absolute inset-1 rounded-full bg-av-gold/20 shadow-[0_0_18px_4px_rgba(240,222,190,0.55)]" />
+                </>
+              )}
+              {/* Pop: replays on every add (key changes with addedTick) */}
+              <motion.span
+                key={addedTick}
+                initial={false}
+                animate={addedTick > 0 && !reduceMotion ? { scale: [1, 1.55, 0.88, 1.18, 1], rotate: [0, -12, 10, -4, 0] } : { scale: 1 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="relative block"
+              >
+                <ShoppingBag className="h-5 w-5" />
+                {count > 0 && (
+                  <span className="absolute -top-2 -right-2 grid place-items-center h-4 w-4 rounded-full bg-av-gold text-[10px] font-bold text-av-deep">
+                    {count}
+                  </span>
+                )}
+              </motion.span>
             </Link>
             <button
               onClick={() => setOpen(true)}
@@ -161,6 +213,20 @@ export default function Header() {
                         {p.name}
                       </Link>
                     ))}
+                    {bundleLinks.length > 0 && (
+                      <>
+                        <div className="py-2 pl-4 text-[10px] uppercase tracking-[0.25em] text-av-gold">Stacks &amp; Bundles</div>
+                        {bundleLinks.map((p) => (
+                          <Link
+                            key={p.id}
+                            to={`/product/${p.slug}`}
+                            className="block py-3 pl-4 text-sm text-av-alloy/70 hover:text-av-gold transition-colors border-b border-av-teal/20"
+                          >
+                            {p.name}
+                          </Link>
+                        ))}
+                      </>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

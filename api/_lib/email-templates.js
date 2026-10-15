@@ -62,7 +62,7 @@ export function customerOrderEmail({ customerName, items, total, orderId }) {
     ${orderId ? `<p style="color:${BRAND.muted};font-size:12px;margin-top:24px;">Order reference: ${orderId}</p>` : ""}
     <p style="color:${BRAND.muted};font-size:13px;margin-top:24px;">
       Questions about your order? Reply to this email or contact
-      <a href="mailto:support@alphavalour.com" style="color:${BRAND.gold};">support@alphavalour.com</a>.
+      <a href="mailto:support@korzavo.com" style="color:${BRAND.gold};">support@korzavo.com</a>.
     </p>`;
   return wrapper(inner);
 }

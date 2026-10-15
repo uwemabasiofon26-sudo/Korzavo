@@ -12,7 +12,7 @@ const SECTIONS = [
   },
   {
     title: "Returns & Refunds",
-    body: "Unopened supplements may be returned within 30 days of delivery for a full refund, excluding return shipping. To initiate a return, contact our support team with your order number. Refunds are processed within 5 business days of receiving the returned items.",
+    body: "Unopened supplements may be returned within 30 days of delivery for a full refund, excluding return shipping. To initiate a return, email our support team at support@korzavo.com with your order number. Refunds are processed within 5 business days of receiving the returned items.",
   },
   {
     title: "Privacy Policy",
@@ -80,7 +80,8 @@ export default function Policy() {
         <ScrollReveal className="mt-12">
           <p className="text-av-alloy/60">
             Questions about these policies?{" "}
-            <Link to="/contact" className="text-av-gold underline underline-offset-4 hover:text-av-alloy">Contact us</Link>.
+            <Link to="/contact" className="text-av-gold underline underline-offset-4 hover:text-av-alloy">Contact us</Link>
+            {" "}— info@korzavo.com for general enquiries, support@korzavo.com for customer service.
           </p>
         </ScrollReveal>
       </section>

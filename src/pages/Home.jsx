@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import BundleShowcase from "@/components/BundleShowcase";
 import { useSEO } from "@/hooks/useSEO";
 import heroVideoMp4 from "@/assets/video/hero.mp4";
 import heroVideoWebm from "@/assets/video/hero.webm";
@@ -62,7 +63,7 @@ export default function Home() {
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const featured = supplements;
-  const stack = all.find((p) => p.category === "stack");
+  const stack = all.find((p) => p.id === "complete-stack");
   const stackPrice = stack?.price || 259.99;
   // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
   // the line-through price and "Save $X" text separately, so they can't
@@ -116,10 +117,10 @@ export default function Home() {
           className="w-full px-5 md:px-10 py-10 md:py-14"
         >
           <div className="mx-auto max-w-[1400px] text-center">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-av-alloy text-balance">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-av-alloy text-balance">
               Fuel Your Strength.<br />
               <span className="text-av-gold">Elevate Your Performance.</span>
-            </h2>
+            </h1>
             <div className="mt-6 md:mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link to="/shop" className="group inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
                 Shop The Range <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -222,6 +223,9 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* STACKS & BUNDLES SPOTLIGHT */}
+      <BundleShowcase />
 
       {/* WHY */}
       <section className="py-10 md:py-16">

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from "react";
 
 const CartContext = createContext(null);
 
@@ -20,7 +20,25 @@ export function CartProvider({ children }) {
     } catch {}
   }, [items]);
 
+  // "Recently added" signal used by the header cart icon: `addedTick` changes
+  // on every add (to replay the pop), and `recentlyAdded` stays true for a few
+  // seconds (or until the cart is opened) while the icon radiates.
+  const [addedTick, setAddedTick] = useState(0);
+  const [recentlyAdded, setRecentlyAdded] = useState(false);
+  const recentTimer = useRef(null);
+
+  const clearRecentlyAdded = useCallback(() => {
+    clearTimeout(recentTimer.current);
+    setRecentlyAdded(false);
+  }, []);
+
+  useEffect(() => () => clearTimeout(recentTimer.current), []);
+
   const addItem = useCallback((item) => {
+    setAddedTick((t) => t + 1);
+    setRecentlyAdded(true);
+    clearTimeout(recentTimer.current);
+    recentTimer.current = setTimeout(() => setRecentlyAdded(false), 6000);
     setItems((prev) => {
       const key = `${item.productId}|${item.purchaseType || "one_time"}|${item.size || ""}|${item.color || ""}`;
       const existing = prev.find((p) => `${p.productId}|${p.purchaseType || "one_time"}|${p.size || ""}|${p.color || ""}` === key);
@@ -49,7 +67,7 @@ export function CartProvider({ children }) {
   const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ items, addItem, removeItem, updateQty, clear, count, subtotal }}>
+    <CartContext.Provider value={{ items, addItem, removeItem, updateQty, clear, count, subtotal, addedTick, recentlyAdded, clearRecentlyAdded }}>
       {children}
     </CartContext.Provider>
   );

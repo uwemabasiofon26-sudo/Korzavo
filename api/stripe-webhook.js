@@ -1,6 +1,6 @@
 // Vercel Serverless Function — Stripe calls this automatically the moment a
 // payment completes. It sends the branded confirmation email to the
-// customer and the order notification to support@alphavalour.com.
+// customer and the order notification to support@korzavo.com.
 //
 // Setup required:
 // 1. Stripe Dashboard → Developers → Webhooks → Add endpoint
@@ -22,7 +22,7 @@ export const config = {
 };
 
 const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Korzavo <onboarding@resend.dev>";
-const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.com";
+const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@korzavo.com";
 
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
