@@ -1,255 +1,124 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight, Star, ShoppingBag } from "lucide-react";
-import { Image } from "@/components/ui/image";
-import { useProducts } from "@/hooks/useProducts";
-import { formatNZD } from "@/lib/brand";
-import { useCart } from "@/context/CartContext";
+import { useState } from "react";
+import { Mail, LifeBuoy, MapPin, MessageSquare } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import BundleShowcase from "@/components/BundleShowcase";
+import { CURRENCY, EMAIL_GENERAL, EMAIL_SUPPORT } from "@/lib/brand";
 import { useSEO } from "@/hooks/useSEO";
 
-export default function Stack() {
+export default function Contact() {
   useSEO({
-    title: "The Complete Stack",
-    description: "EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD bundled as a complete performance nutrition system — a discounted one-time purchase for training, nutrition and recovery.",
-    path: "/stack",
+    title: "Contact Us",
+    description: "Get in touch with Korzavo for questions about our performance nutrition and supplement products or your order.",
+    path: "/contact",
   });
 
-  const { data: products } = useProducts();
-  const { addItem } = useCart();
-  const [packed, setPacked] = useState([]);
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
-  // The stack is a fixed bundle of these five products specifically — not
-  // every product in the "supplement" category (which now also includes
-  // NITROXAR and ALPHA NIGHT RECOVERY, which aren't part of this bundle).
-  const STACK_PRODUCT_IDS = ["explovex", "korzix", "creatine", "grow", "glycoload"];
-  const supps = (products || []).filter((p) => STACK_PRODUCT_IDS.includes(p.id));
-  const stack = (products || []).find((p) => p.category === "stack");
+  const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const pack = (p) => {
-    setPacked((prev) => (prev.includes(p.id) ? prev : [...prev, p.id]));
+  const submit = (e) => {
+    e.preventDefault();
+    setSent(true);
   };
-
-  const addStack = () => {
-    if (!stack) return;
-    addItem({
-      productId: stack.id,
-      name: stack.name,
-      slug: stack.slug,
-      image: stack.image,
-      price: stack.price,
-      purchaseType: "one_time",
-    });
-  };
-
-  const summaryBar = (
-    <div className="border border-av-teal/50 bg-av-deep/95 backdrop-blur-md rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
-      <div aria-live="polite">
-        {addedCount > 0 ? (
-          <>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-emerald-400 font-semibold">
-              {addedCount} {addedCount === 1 ? "product" : "products"} added to your cart
-            </p>
-            <Link to="/cart" className="mt-1 inline-flex items-center gap-1.5 text-sm text-av-gold hover:underline underline-offset-4">
-              View cart <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </>
-        ) : (
-          <>
-            <p className="text-[11px] uppercase tracking-[0.25em] text-av-alloy/50">Your Stack</p>
-            <p className="mt-1 text-av-alloy">
-              {packedProducts.length === 0 ? (
-                <span className="text-av-alloy/60 text-sm">Nothing packed yet — pick products above.</span>
-              ) : (
-                <>
-                  <span className="font-display text-2xl font-bold text-av-gold">{formatNZD(packedTotal)}</span>
-                  <span className="ml-3 text-sm text-av-alloy/60">
-                    {packedProducts.length} {packedProducts.length === 1 ? "product" : "products"}
-                  </span>
-                </>
-              )}
-            </p>
-          </>
-        )}
-      </div>
-      <button
-        type="button"
-        onClick={addPackedToCart}
-        disabled={packedProducts.length === 0}
-        className="inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-7 py-3.5 rounded-full text-xs md:text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:brightness-100"
-      >
-        <ShoppingBag className="h-4 w-4" />
-        Add {packedProducts.length > 0 ? `${packedProducts.length} ` : ""}to Cart
-      </button>
-    </div>  );
-
-  const individualValue = 323.95;
-  const stackPrice = stack?.price || 259.99;
-  const savings = individualValue - stackPrice;
 
   return (
-    <div className="bg-av-deep pt-28 md:pt-36 pb-24">
+    <div className="bg-av-deep pt-28 md:pt-36 pb-20 md:pb-24">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ScrollReveal>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Korzavo Stack</p>
-          <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
-            One pack. Three systems. Total daily performance.
+          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Contact</p>
+          <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-3xl leading-[1.05]">
+            Talk to the performance team.
           </h1>
-          <p className="mt-6 text-lg text-av-alloy/70 max-w-2xl">
-            Get all five products together as a complete performance system — designed to support preparation, training, nutrition and recovery.
+          <p className="mt-4 md:mt-5 text-sm md:text-base text-av-alloy/70 max-w-xl">
+            Questions about products or your order? We're here to help. Use {EMAIL_GENERAL} for general enquiries and {EMAIL_SUPPORT} for customer service.
           </p>
         </ScrollReveal>
 
-        {/* TIERED SAVINGS */}
-        <ScrollReveal delay={0.1} className="mt-12 grid md:grid-cols-2 gap-px bg-av-teal/30 border border-av-teal/30">
-          <div className="bg-av-deep p-8 md:p-10">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-av-alloy/50">Individual Value</p>
-            <p className="font-display text-5xl font-bold text-av-alloy/60 mt-3 line-through">{formatNZD(individualValue)}</p>
-            <p className="text-sm text-av-alloy/50 mt-3">EXPLOVEX + KORZIX + CREATINE + GROW + GLYCOLOAD bought separately</p>
-          </div>
-          <div className="bg-av-gold text-av-deep p-8 md:p-10">
-            <p className="text-[11px] uppercase tracking-[0.25em] text-av-deep/70">Stack Price</p>
-            <p className="font-display text-5xl font-bold mt-3">{formatNZD(stackPrice)}</p>
-            <p className="text-sm mt-3 font-semibold">You save {formatNZD(savings)}</p>
-          </div>
-        </ScrollReveal>
-
-        {/* STACK BUILDER */}
-        <div className="mt-20">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-av-alloy mb-3">Stack Builder</h2>
-              <p className="text-av-alloy/60 max-w-xl">
-                Click any product to pack it into your system — click it again to take it out. Then add your picks to the cart.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => setPacked(allPacked ? [] : selectableProducts.map((p) => p.id))}
-              className="self-start md:self-auto text-xs uppercase tracking-[0.2em] text-av-alloy/60 hover:text-av-gold transition"
-            >
-              {allPacked ? "Clear selection" : "Select all"}
-            </button>
-          </ScrollReveal>
-
-          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {builderProducts.map((p) => {
-              const isPacked = packed.includes(p.id);
-              const soldOut = p.inStock === false;
-              return (
-                <motion.button
-                  key={p.id}
-                  type="button"
-                  onClick={() => togglePack(p)}
-                  disabled={soldOut}
-                  aria-pressed={isPacked}
-                  whileTap={soldOut ? undefined : { scale: 0.97 }}
-                  className="group text-left disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <div
-                    className={
-                      "relative frame-corner overflow-hidden bg-av-teal/20 aspect-[4/5] transition-shadow " +
-                      (isPacked ? "ring-2 ring-av-gold" : "")
-                    }
-                  >
-                    <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full" />
-                    <AnimatePresence>
-                      {isPacked && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="absolute inset-0 bg-av-deep/40 grid place-items-center"
-                        >
-                          <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="grid place-items-center h-12 w-12 rounded-full bg-av-gold text-av-deep"
-                          >
-                            <Check className="h-6 w-6" />
-                          </motion.span>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="font-display text-lg font-bold text-av-alloy">{p.name}</h3>
-                    <p className="text-xs text-av-alloy/80">{p.tagline}</p>
-                    <div className="mt-1 flex items-center justify-between gap-2">
-                      <p className="text-xs uppercase tracking-[0.2em] text-av-gold/80">
-                        {soldOut ? "Out of stock" : isPacked ? "Packed · tap to remove" : "Tap to pack"}
-                      </p>
-                      <p className="text-sm font-semibold text-av-alloy/80">{formatNZD(p.price)}</p>
-                    </div>
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
-
-          {/* YOUR STACK — summary + add to cart */}
-          <div ref={inlineBarRef} className="mt-10">
-            {summaryBar}
-          </div>
-
-          <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-av-teal/40 pt-8">
-            <div>
-              <p className="text-[11px] uppercase tracking-[0.25em] text-av-alloy/50">Complete Performance Stack</p>
-              <p className="font-display text-4xl font-bold text-av-gold mt-1">{formatNZD(stackPrice)}</p>
-            </div>
-            <div className="flex flex-col items-center md:items-end gap-3">
-              {/* Trust signal placed right at the decision point, not
-                  buried below the fold with the single review carousel. */}
-              <div className="flex items-center gap-1.5 text-[11px] text-av-alloy/80">
-                <div className="flex text-av-gold">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-av-gold text-av-gold" />
-                  ))}
-                </div>
-                <span>4.9 rating from 300+ athletes</span>
-              </div>
-              {stack?.inStock === false ? (
-                <div className="inline-flex items-center gap-2 rounded-full border border-av-teal/60 bg-av-teal/10 px-8 py-4 text-sm uppercase tracking-[0.2em] font-bold text-av-alloy/60">
-                  Out of Stock
-                </div>
+        {/* Info cards */}
+        <div className="mt-10 md:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-av-teal/30 border border-av-teal/30">
+          {[
+            { icon: Mail, label: "General Enquiries", value: EMAIL_GENERAL, href: `mailto:${EMAIL_GENERAL}` },
+            { icon: LifeBuoy, label: "Customer Service", value: EMAIL_SUPPORT, href: `mailto:${EMAIL_SUPPORT}` },
+            { icon: MapPin, label: "Location", value: "Auckland, New Zealand" },
+            { icon: MessageSquare, label: "Hours", value: "Mon–Fri · 9am–5pm NZST" },
+          ].map((c, i) => (
+            <ScrollReveal key={i} delay={i * 0.08} className="bg-av-deep p-6 md:p-8">
+              <c.icon className="h-6 w-6 text-av-gold mb-4" />
+              <p className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/50">{c.label}</p>
+              {c.href ? (
+                <a href={c.href} className="block text-av-alloy mt-1 text-sm break-words hover:text-av-gold transition-colors">{c.value}</a>
               ) : (
-                <button
-                  onClick={addStack}
-                  className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
-                >
-                  Add Stack To Cart <ArrowRight className="h-4 w-4" />
-                </button>
+                <p className="text-av-alloy mt-1 text-sm break-words">{c.value}</p>
               )}
-            </div>
-          </div>
+            </ScrollReveal>
+          ))}
         </div>
 
-        <ScrollReveal className="mt-16 text-center">
-          <Link to="/shop" className="text-sm uppercase tracking-[0.2em] text-av-alloy/60 hover:text-av-gold transition">
-            Or shop individual products →
-          </Link>
-        </ScrollReveal>
+        <div className="mt-12 md:mt-16 grid md:grid-cols-2 gap-10 md:gap-12">
+          {/* Form */}
+          <ScrollReveal>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-av-alloy mb-5">Send a message</h2>
+            {sent ? (
+              <div className="border border-av-gold/40 bg-av-gold/10 p-6 md:p-8 rounded">
+                <p className="text-av-gold font-semibold">Message received.</p>
+                <p className="text-av-alloy/70 mt-2 text-sm">We'll get back to you within 1–2 business days.</p>
+              </div>
+            ) : (
+              <form onSubmit={submit} className="space-y-4 md:space-y-5">
+                <Field label="Name" value={form.name} onChange={update("name")} required />
+                <Field label="Email" type="email" value={form.email} onChange={update("email")} required />
+                <Field label="Subject" value={form.subject} onChange={update("subject")} required />
+                <div>
+                  <label className="block text-[11px] uppercase tracking-[0.2em] text-av-alloy/50 mb-2">Message</label>
+                  <textarea
+                    required
+                    rows={5}
+                    value={form.message}
+                    onChange={update("message")}
+                    className="w-full bg-transparent border border-av-teal rounded px-4 py-3 text-sm text-av-alloy placeholder:text-av-alloy/40 focus:border-av-gold outline-none transition resize-none"
+                  />
+                </div>
+                <button type="submit" className="w-full sm:w-auto bg-av-gold text-av-deep px-8 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
+                  Send Message
+                </button>
+              </form>
+            )}
+          </ScrollReveal>
+
+          {/* Status */}
+          <ScrollReveal delay={0.1}>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-av-alloy mb-5">System status</h2>
+            <div className="border border-av-teal/40 rounded-lg divide-y divide-av-teal/30">
+              {[
+                { label: "Currency", value: CURRENCY },
+                { label: "Shipping", value: "Operational", valueClass: "text-emerald-400" },
+                { label: "Support", value: "Online", valueClass: "text-emerald-400" },
+                { label: "Region", value: "New Zealand" },
+              ].map((row) => (
+                <div key={row.label} className="flex items-center justify-between px-5 py-4">
+                  <span className="text-sm text-av-alloy/50">{row.label}</span>
+                  <span className={`text-sm font-medium ${row.valueClass || "text-av-alloy"}`}>{row.value}</span>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
+    </div>
+  );
+}
 
-      {/* More stacks & bundles */}
-      <BundleShowcase className="mt-10 md:mt-16" />
-
-      {/* Floating summary: visible only while picks exist and the inline bar is out of view */}
-      <AnimatePresence>
-        {!inlineBarVisible && (packed.length > 0 || addedCount > 0) && (
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 24 }}
-            transition={{ duration: 0.25 }}
-            className="fixed bottom-3 inset-x-3 md:inset-x-10 z-40 mx-auto max-w-[1200px]"
-          >
-            {summaryBar}
-          </motion.div>
-        )}
-      </AnimatePresence>
+function Field({ label, type = "text", value, onChange, required }) {
+  return (
+    <div>
+      <label className="block text-[11px] uppercase tracking-[0.2em] text-av-alloy/50 mb-2">{label}</label>
+      <input
+        type={type}
+        required={required}
+        value={value}
+        onChange={onChange}
+        className="w-full bg-transparent border border-av-teal rounded px-4 py-3 text-sm text-av-alloy focus:border-av-gold outline-none transition"
+      />
     </div>
   );
 }
