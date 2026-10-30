@@ -56,7 +56,12 @@
     },
     {
       "source": "/product/drive",
-      "destination": "/product/korzix",
+      "destination": "/shop",
+      "permanent": true
+    },
+    {
+      "source": "/product/korzix",
+      "destination": "/shop",
       "permanent": true
     }
   ],

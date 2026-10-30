@@ -15,7 +15,7 @@ const BUNDLES = [
     kicker: "NITROXAR™ + ANDROZAR",
     hook: "Two formulas. One focused routine.",
     teaser:
-      "Circulation-focused ingredients on one side, traditional vitality botanicals on the other. Two distinct profiles, thoughtfully paired for people who train with purpose and care about everyday wellbeing.",
+      "Circulation-focused ingredients on one side, everyday vitality and energy support on the other. Two distinct profiles, thoughtfully paired for people who train with purpose and care about everyday wellbeing.",
     cta: "Unlock the Dominance Stack",
   },
   {

@@ -4,8 +4,6 @@
 
 import explovexBottle from "@/assets/products/korzavo-explovex.jpg";
 import explovexFacts from "@/assets/products/korzavo-explovex-facts.jpg";
-import korzixBottle from "@/assets/products/korzavo-korzix.jpg";
-import korzixFacts from "@/assets/products/korzavo-korzix-facts.jpg";
 import creatineBottle from "@/assets/products/korzavo-creatine.jpg";
 import creatineFacts from "@/assets/products/korzavo-creatine-facts.jpg";
 import growBottle from "@/assets/products/korzavo-grow.jpg";
@@ -23,28 +21,24 @@ import nightRecoveryBottle from "@/assets/products/korzavo-night-recovery.jpg";
 import nightRecoveryFacts from "@/assets/products/korzavo-night-recovery-facts.jpg";
 
 // Wide banners used inside the bundle pages.
-import dominanceTwoFormulas from "@/assets/bundles/dominance-two-formulas.jpg";
-import dominanceIngredients from "@/assets/bundles/dominance-ingredients.jpg";
-import bannerAndrozar from "@/assets/bundles/androzar-testosterone-vitality.jpg";
 import bannerNitroxar from "@/assets/bundles/nitroxar-nitric-oxide.jpg";
 import performanceStackBanner from "@/assets/bundles/performance-stack-banner.jpg";
+import alpha24PosterNitroxar from "@/assets/bundles/alpha24-nitroxar.jpg";
+import alpha24PosterNight from "@/assets/bundles/alpha24-night-recovery.jpg";
 import bannerNightRecovery from "@/assets/bundles/night-recovery-rest-relax.jpg";
 
 // Ingredient photography used by the "story" sections on product pages.
 import androzarEpimedium from "@/assets/ingredients/androzar-epimedium.jpg";
-import androzarShilajit from "@/assets/ingredients/androzar-shilajit.jpg";
 import androzarPanax from "@/assets/ingredients/androzar-panax-ginseng.jpg";
-import androzarTongkat from "@/assets/ingredients/androzar-tongkat-ali.jpg";
+import androzarEnergy from "@/assets/ingredients/androzar-energy-blend.jpg";
+import androzarVitamins from "@/assets/ingredients/androzar-daily-vitamins.jpg";
+import androzarMinerals from "@/assets/ingredients/androzar-essential-minerals.jpg";
+import dominanceCirculation from "@/assets/ingredients/dominance-circulation.jpg";
 import nitroxarCitrulline from "@/assets/ingredients/nitroxar-l-citrulline.jpg";
 import nitroxarBeetroot from "@/assets/ingredients/nitroxar-beetroot.jpg";
 import nitroxarZinc from "@/assets/ingredients/nitroxar-zinc.jpg";
 import nitroxarEpimedium from "@/assets/ingredients/nitroxar-epimedium.jpg";
 import nitroxarBlackPepper from "@/assets/ingredients/nitroxar-black-pepper.jpg";
-import korzixOyster from "@/assets/ingredients/korzix-oyster.jpg";
-import korzixMaca from "@/assets/ingredients/korzix-black-maca.jpg";
-import korzixPanax from "@/assets/ingredients/korzix-panax-ginseng.jpg";
-import korzixVitamins from "@/assets/ingredients/korzix-daily-vitamins.jpg";
-import korzixMinerals from "@/assets/ingredients/korzix-essential-minerals.jpg";
 
 // Shape reference (every field used somewhere in the UI):
 // {
@@ -104,126 +98,6 @@ export const PRODUCTS = [
     size: "200g · Raspberry Lemonade",
     usage: "Mix 1 scoop with water 20–30 minutes before training.",
     sort_order: 1,
-  },
-  {
-    id: "korzix",
-    inStock: true,
-    slug: "korzix",
-    name: "KORZIX",
-    display_name: "KORZIX™",
-    tagline: "Premium Daily Performance Multi",
-    headline: "Daily nutrition. Everyday ambition.",
-    description:
-      "For men and women who make wellbeing part of their routine. KORZIX brings together 19 vitamins and minerals with Oyster Extract, Black Maca and Panax Ginseng in one daily formula.",
-    meta_description:
-      "KORZIX brings together 19 vitamins and minerals with Oyster Extract, Black Maca and Panax Ginseng in one daily formula for men and women.",
-    long_description: [
-      "Its essential nutrients support normal energy metabolism, immune function and the everyday processes behind muscle and nerve function—while its botanical ingredients bring a tradition of vitality to the blend.",
-      "From busy working days to an active lifestyle, give your daily nutrition the attention it deserves.",
-    ],
-    category: "supplement",
-    image: korzixBottle,
-    supplement_facts_image: korzixFacts,
-    price: 79,
-    benefits: [
-      "19 vitamins and minerals in one daily formula",
-      "Supports normal energy metabolism and immune function",
-      "Supports everyday muscle and nerve function",
-      "Oyster Extract, Black Maca and Panax Ginseng",
-      "For men and women with active lives",
-    ],
-    ingredients: [
-      "19 Vitamins & Minerals (12 vitamins, 7 minerals) — 1 capsule",
-      "Oyster Extract — 1000mg",
-      "Black Maca Extract (10:1) — 1000mg",
-      "Panax Ginseng Extract (20% Ginsenosides) — 300mg",
-    ],
-    servings: "20 servings",
-    size: "6 capsule daily pack · 120 capsules",
-    usage: "Take all 6 capsules together once daily, with food.",
-    allergen: "Contains oyster, a molluscan shellfish.",
-    story: {
-      heading: "19 vitamins & minerals. Three distinctive extracts.",
-      items: [
-        {
-          name: "Oyster Extract",
-          dose: "1,000 mg per serving",
-          image: korzixOyster,
-          headline: "A distinctive marine ingredient",
-          paragraphs: [
-            "Oyster Extract brings a marine origin to KORZIX, complementing its botanical extracts and clearly specified vitamins and minerals.",
-            "Each daily serving provides 1,000 mg of Oyster Extract as one of the formula’s three signature ingredients.",
-            "Together with Black Maca and Panax Ginseng, it gives KORZIX a distinctive identity beyond a conventional multivitamin.",
-          ],
-          tags: "Marine origin • Signature ingredient • Daily formula",
-          note: "Contains oyster, a molluscan shellfish.",
-        },
-        {
-          name: "Black Maca Extract",
-          dose: "1,000 mg per serving | 10:1 Extract",
-          image: korzixMaca,
-          headline: "A tradition of vitality for men and women",
-          paragraphs: [
-            "Native to the Peruvian Andes, maca has been used as a food and traditional botanical for generations.",
-            "Research on specific maca preparations has explored perceived wellbeing and sexual desire in men and women—bringing an everyday-vitality dimension to the conversation around health.",
-            { label: "In the KORZIX formula", text: "Each serving provides 1,000 mg of Black Maca Extract at a 10:1 extraction ratio, complementing the formula’s essential nutrient foundation." },
-            "Whether your priorities include daily wellbeing, intimacy or an active routine, maca brings a distinctive botanical heritage to KORZIX.",
-          ],
-          tags: "Botanical heritage • Vitality research • Everyday wellbeing",
-        },
-        {
-          name: "Panax Ginseng Extract",
-          dose: "300 mg per serving | Standardised to 20% Ginsenosides",
-          image: korzixPanax,
-          headline: "Vitality for life beyond the gym",
-          paragraphs: [
-            "Panax Ginseng has a long tradition of use for vitality, with human research exploring its potential role in general fatigue and wellbeing.",
-            "Its characteristic compounds, called ginsenosides, give this botanical its distinctive identity.",
-            { label: "In the KORZIX formula", text: "Each serving provides 300 mg of Panax Ginseng Extract, standardised to 20% ginsenosides." },
-            "It complements the vitamin and mineral blend, adding a botanical focus on everyday vitality for men and women with busy, active lives.",
-          ],
-          tags: "Traditional vitality • General fatigue research • Standardised extract",
-        },
-        {
-          name: "Daily Vitamins",
-          dose: "12 Vitamins. A Nutritional Foundation.",
-          image: korzixVitamins,
-          headline: "Support the processes behind your day",
-          paragraphs: [
-            "KORZIX combines eight B vitamins with vitamins A, C, D3 and E.",
-            "B vitamins contribute to the normal metabolic processes that allow the body to use nutrients from food. Selected vitamins also support normal nerve function and red blood cell formation.",
-            "Vitamins A, C and D contribute to normal immune function. Vitamin C supports collagen formation, vitamin D supports normal muscle and bone function, and vitamin E contributes to antioxidant protection.",
-            "A nutritional foundation for men and women who value consistent daily care.",
-          ],
-          tags: "Energy metabolism • Immune function • Daily nutrition",
-        },
-        {
-          name: "Essential Minerals",
-          dose: "Seven Minerals. Everyday Roles.",
-          image: korzixMinerals,
-          headline: "Small nutrients. Essential functions.",
-          paragraphs: [
-            "Zinc, magnesium, iodine, selenium, copper, manganese and chromium complete the mineral foundation of KORZIX.",
-            "Magnesium contributes to normal muscle and nerve function and energy metabolism. Zinc supports normal protein synthesis and immune function.",
-            "Iodine contributes to thyroid hormone production, while selenium supports normal thyroid function and antioxidant systems. Copper and manganese participate in essential enzyme processes, and chromium is involved in insulin action and nutrient metabolism.",
-            "Together, these minerals help meet nutritional needs that matter both during daily life and an active routine.",
-          ],
-          tags: "Muscle & nerve function • Nutrient metabolism • Essential nutrition",
-        },
-      ],
-      closing: {
-        heading: "KORZIX™ — Make daily wellbeing part of your routine.",
-        body: "Essential nutrition and distinctive extracts, brought together for men and women with active lives.",
-      },
-    },
-    guarantee: {
-      title: "30-Day Money-Back Guarantee",
-      body: "Try KORZIX with confidence. If you’re not satisfied, contact us within 30 days of receiving your order to request a refund.",
-      note: "Terms and conditions apply.",
-    },
-    disclaimer:
-      "Individual results vary. Follow the final product label. Contains oyster: do not use if allergic to oysters or molluscan shellfish. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
-    sort_order: 2,
   },
   {
     id: "creatine",
@@ -422,39 +296,72 @@ export const PRODUCTS = [
     inStock: true,
     slug: "androzar",
     name: "ANDROZAR",
-    tagline: "Testosterone Complex",
-    headline: "Vitality. Drive. Your next challenge.",
+    tagline: "Power to Perform",
+    headline: "Energy. Strength. Vitality.",
     description:
-      "Your goals go beyond the gym. Feeling engaged in daily life, making time for intimacy and staying committed to training are all part of the same ambition: taking care of yourself.",
+      "ANDROZAR brings a daily foundation of 19 vitamins and minerals together with Epimedium Extract, Panax Ginseng Extract and an Energy & Performance Blend, in one daily pack.",
     meta_description:
-      "ANDROZAR brings together four distinctive extracts—Epimedium, Tongkat Ali, Shilajit and Panax Ginseng—in a formula created with men’s vitality and an active lifestyle in mind.",
+      "ANDROZAR — Power to Perform. A daily pack of 19 vitamins and minerals, Epimedium Extract, Panax Ginseng Extract and an Energy & Performance Blend for energy, strength and vitality.",
     long_description: [
-      "ANDROZAR brings together four distinctive extracts—Epimedium, Tongkat Ali, Shilajit and Panax Ginseng—in a formula created with men’s vitality and an active lifestyle in mind.",
-      "For men pursuing strength and muscle, it belongs alongside the essentials: purposeful training, quality nutrition and consistent recovery.",
+      "Each daily pack is built in three parts: a Daily Health Foundation of vitamins and minerals, a Vitality & Performance pair of standardised extracts, and an Energy & Performance Blend.",
+      "Made for training sessions and demanding workdays alike.",
     ],
     category: "supplement",
     image: androzarBottle,
     supplement_facts_image: androzarFacts,
     price: 79,
     benefits: [
-      "Vitality, drive and stamina",
-      "Four distinctive extracts with clearly specified content",
-      "Created with men’s vitality in mind",
-      "Made for an active lifestyle",
+      "Energy, strength and vitality",
+      "19 vitamins and minerals in one daily pack",
+      "Standardised Epimedium and Panax Ginseng extracts",
+      "Energy & Performance Blend for training sessions and demanding workdays",
     ],
-    // Names and doses match the Supplement Facts image.
+    // Matches the Supplement Facts image: 1 daily pack = 5 capsules
+    // (1 foundation + 3 vitality & performance + 1 energy & performance).
     ingredients: [
+      "Daily Health Foundation: 19 Vitamins & Minerals",
       "Epimedium Extract (10% Icariin) — 1000mg",
-      "Tongkat Ali Extract (100:1) — 500mg",
-      "Shilajit Extract (10% Fulvic Acid) — 500mg",
       "Panax Ginseng Extract (20% Ginsenosides) — 300mg",
+      "Energy & Performance Blend — 470mg (L-Tyrosine, Caffeine Anhydrous, L-Theanine, Rhodiola rosea Extract, Bitter Orange Extract)",
     ],
-    servings: "15 servings",
-    size: "5 capsules per serving · 75 capsules",
-    usage: "Serving size: 5 capsules. Servings per container: 15.",
+    // Ingredients shown in the "Scientific Research" cards (the blend is split
+    // into its components so each gets its own card).
+    show_research: true,
+    research_ingredients: [
+      "19 Vitamins & Minerals",
+      "Epimedium Extract",
+      "Panax Ginseng Extract",
+      "L-Tyrosine",
+      "Caffeine Anhydrous",
+      "L-Theanine",
+      "Rhodiola rosea Extract",
+      "Bitter Orange Extract",
+    ],
+    servings: "20 servings",
+    size: "5 capsules per serving · 100 capsules",
+    usage: "Serving size: 1 daily pack (5 capsules). Servings per container: 20.",
+    allergen: "Contains caffeine.",
+    disclaimer:
+      "Contains caffeine. Not suitable for children. If you are pregnant, breastfeeding, sensitive to caffeine or other stimulants, taking medication or managing a medical condition, consult a healthcare professional before use. Individual results vary. Follow the final product label.",
     story: {
-      heading: "Four extracts. A clear purpose.",
+      heading: "Inside the daily pack",
       items: [
+        {
+          name: "Energy & Performance Blend",
+          dose: "470 mg per serving",
+          image: androzarEnergy,
+          headline: "Built for training sessions and demanding workdays",
+          paragraphs: [
+            "Designed for gym-goers, office workers, and busy adults who want support for energy, alertness, and focus.",
+            "We added this blend to complement ANDROZAR’s vitamins and botanical extracts, with training sessions and demanding workdays in mind.",
+          ],
+          list: {
+            label: "In the blend",
+            items: ["L-Tyrosine", "Caffeine Anhydrous", "L-Theanine", "Rhodiola rosea Extract", "Bitter Orange Extract"],
+          },
+          note: "Contains caffeine.",
+          tags: "Energy • Alertness • Focus",
+        },
         {
           name: "Epimedium Extract",
           dose: "1,000 mg per serving | Standardised to 10% Icariin",
@@ -463,22 +370,9 @@ export const PRODUCTS = [
           paragraphs: [
             "Male wellbeing includes intimacy as well as physical activity.",
             "Epimedium has a long history of traditional use for sexual vitality. Its distinctive plant compound, icariin, makes it a recognisable ingredient in the conversation around men’s wellbeing.",
-            "ANDROZAR provides 1,000 mg of Epimedium extract per serving, standardised to 10% icariin—a clearly specified contribution to the formula’s male-vitality focus.",
+            "ANDROZAR provides 1,000 mg of Epimedium extract per serving, standardised to 10% icariin—a clearly specified contribution to the formula’s vitality focus.",
           ],
           tags: "Traditional use • Male vitality • Defined extract content",
-        },
-        {
-          name: "Shilajit Extract",
-          dose: "500 mg per serving | Standardised to 10% Fulvic Acid",
-          image: androzarShilajit,
-          headline: "Where vitality meets physical performance research",
-          paragraphs: [
-            "Shilajit brings a distinctive Ayurvedic heritage to the formula.",
-            "A naturally occurring mineral-organic substance, purified Shilajit preparations have been investigated for male hormonal wellbeing and the ability to maintain muscular strength during fatiguing exercise.",
-            "That research makes Shilajit an interesting connection between the two themes behind ANDROZAR: men’s vitality and the demands of an active lifestyle.",
-            "Each serving provides 500 mg of Shilajit extract, standardised to 10% fulvic acid.",
-          ],
-          tags: "Ayurvedic heritage • Male wellbeing • Muscular fatigue research",
         },
         {
           name: "Panax Ginseng Extract",
@@ -486,27 +380,45 @@ export const PRODUCTS = [
           image: androzarPanax,
           headline: "Vitality beyond your workout",
           paragraphs: [
-            "An active life involves more than training.",
-            "Panax Ginseng has a long tradition of use for vitality, with research exploring general fatigue and aspects of male sexual wellbeing.",
-            "It adds an everyday-wellbeing dimension to ANDROZAR, complementing the formula’s focus on men’s vitality.",
-            "Each serving provides 300 mg of Panax Ginseng extract, standardised to 20% ginsenosides.",
+            "Panax Ginseng has a long tradition of use for vitality, with human research exploring its potential role in general fatigue and wellbeing.",
+            "Its characteristic compounds, called ginsenosides, give this botanical its distinctive identity.",
+            { label: "In the ANDROZAR formula", text: "Each serving provides 300 mg of Panax Ginseng Extract, standardised to 20% ginsenosides." },
+            "It complements the vitamin and mineral foundation and the Energy & Performance Blend, adding a botanical focus on everyday vitality for people with busy, active lives.",
           ],
-          tags: "Traditional vitality • Everyday wellbeing • Defined extract content",
+          tags: "Traditional vitality • General fatigue research • Standardised extract",
         },
         {
-          name: "Tongkat Ali Extract",
-          dose: "500 mg per serving | 100:1 Extract",
-          image: androzarTongkat,
-          headline: "Men’s vitality, with an active mindset",
+          name: "Daily Vitamins",
+          dose: "12 Vitamins. A Nutritional Foundation.",
+          image: androzarVitamins,
+          headline: "Support the processes behind your day",
           paragraphs: [
-            "Tongkat Ali brings a Southeast Asian tradition of male vitality to ANDROZAR.",
-            "Also known as Eurycoma longifolia, this botanical has attracted human research into testosterone and male wellbeing using specific extracts.",
-            "Its place in ANDROZAR reflects a focus on men who care about their wellbeing and take their physical goals seriously—from daily activity to consistent resistance training.",
-            "Each serving provides 500 mg of Tongkat Ali extract.",
+            "ANDROZAR combines eight B vitamins with vitamins A, C, D3 and E.",
+            "B vitamins contribute to the normal metabolic processes that allow the body to use nutrients from food. Selected vitamins also support normal nerve function and red blood cell formation.",
+            "Vitamins A, C and D contribute to normal immune function. Vitamin C supports collagen formation, vitamin D supports normal muscle and bone function, and vitamin E contributes to antioxidant protection.",
+            "A nutritional foundation for people who value consistent daily care.",
           ],
-          tags: "Male wellbeing • Botanical heritage • Active living",
+          tags: "Energy metabolism • Immune function • Daily nutrition",
+        },
+        {
+          name: "Essential Minerals",
+          dose: "Seven Minerals. Everyday Roles.",
+          image: androzarMinerals,
+          headline: "Small nutrients. Essential functions.",
+          paragraphs: [
+            "Zinc, magnesium, iodine, selenium, copper, manganese and chromium complete the mineral foundation of ANDROZAR.",
+            "Magnesium contributes to normal muscle and nerve function and energy metabolism. Zinc supports normal protein synthesis and immune function.",
+            "Iodine contributes to thyroid hormone production, while selenium supports normal thyroid function and antioxidant systems. Copper and manganese participate in essential enzyme processes, and chromium is involved in insulin action and nutrient metabolism.",
+            "Together, these minerals help meet nutritional needs that matter both during daily life and an active routine.",
+          ],
+          tags: "Muscle & nerve function • Nutrient metabolism • Essential nutrition",
         },
       ],
+      closing: {
+        heading: "ANDROZAR — Power to perform.",
+        body: "One daily pack. Energy, strength and vitality.",
+        cta: "Add ANDROZAR to Cart",
+      },
     },
     sort_order: 7,
   },
@@ -547,10 +459,17 @@ export const PRODUCTS = [
     name: "The Complete Stack",
     tagline: "Complete Performance System",
     description:
-      "EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
+      "EXPLOVEX, ANDROZAR, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
     category: "stack",
     image: stackBottle,
     price: 259.99,
+    includes: [
+      { id: "explovex", quantity: 1 },
+      { id: "androzar", quantity: 1 },
+      { id: "creatine", quantity: 1 },
+      { id: "grow", quantity: 1 },
+      { id: "glycoload", quantity: 1 },
+    ],
     sort_order: 9,
   },
   {
@@ -561,10 +480,10 @@ export const PRODUCTS = [
     tagline: "NITROXAR™ + ANDROZAR",
     headline: "Two formulas. One focused routine.",
     description:
-      "Bring circulation-focused ingredients and traditional vitality botanicals into one thoughtfully selected bundle.",
+      "Bring circulation-focused ingredients and everyday vitality and energy support into one thoughtfully selected bundle.",
     long_description: [
       "NITROXAR features L-Citrulline, Beetroot Extract, Epimedium, Zinc and Black Pepper Extract.",
-      "ANDROZAR brings together Epimedium, Tongkat Ali, Shilajit and Panax Ginseng.",
+      "ANDROZAR brings together Epimedium, Panax Ginseng, an Energy & Performance Blend and a daily foundation of 19 vitamins and minerals.",
       "Two distinct ingredient profiles, connecting your interest in training with your commitment to everyday wellbeing.",
     ],
     category: "stack",
@@ -580,15 +499,11 @@ export const PRODUCTS = [
       numbered: false,
       items: [
         {
-          wide: true,
-          image: dominanceTwoFormulas,
-          alt: "Two formulas. One focused routine. NITROXAR plus ANDROZAR.",
-        },
-        {
-          wide: true,
           name: "The Circulation Connection",
-          image: dominanceIngredients,
-          alt: "L-Citrulline and Beetroot, Tongkat Ali and Shilajit, and Panax Ginseng",
+          image: dominanceCirculation,
+          alt: "L-Citrulline and Beetroot",
+          width: 760,
+          height: 793,
           paragraphs: [
             "Your working muscles rely on blood flow to deliver oxygen and nutrients.",
             "L-Citrulline participates in the body’s arginine and nitric-oxide pathways. Nitric oxide helps blood vessels relax—a connection that makes citrulline an ingredient of interest in sports nutrition.",
@@ -597,15 +512,16 @@ export const PRODUCTS = [
           tags: "Circulation science • Active living • Mineral nutrition",
         },
         {
-          wide: true,
           name: "The Vitality Connection",
+          image: androzarPanax,
+          alt: "Panax Ginseng extract",
           paragraphs: [
             "An active routine goes beyond the workout.",
-            "ANDROZAR combines Tongkat Ali, Shilajit, Panax Ginseng and Epimedium—ingredients with a history of use in traditional vitality preparations.",
-            "Paired with NITROXAR, the bundle offers a broader selection of ingredients for customers interested in both circulation-focused nutrition and botanical vitality.",
+            "ANDROZAR combines Epimedium and Panax Ginseng—ingredients with a history of use in traditional vitality preparations—with an Energy & Performance Blend and a daily vitamin and mineral foundation.",
+            "Paired with NITROXAR, the bundle offers a broader selection of ingredients for customers interested in both circulation-focused nutrition and everyday vitality and energy.",
             "Build your routine around purposeful training, balanced nutrition and quality sleep.",
           ],
-          tags: "Traditional botanicals • Everyday wellbeing • A focused routine",
+          tags: "Traditional botanicals • Daily energy • A focused routine",
         },
       ],
     },
@@ -616,9 +532,13 @@ export const PRODUCTS = [
     inStock: true,
     slug: "alpha-24-stack",
     name: "ALPHA 24 STACK",
-    tagline: "Own your day. Prioritise your night.",
+    tagline: "Vitality • Performance • Recovery",
+    headline: "Bring more to your day. Make time to recover.",
     description:
-      "Own your day. Prioritise your night. Choose the NITROXAR, ANDROZAR and NIGHT RECOVERY bundle to bring your daytime goals and evening wind-down into one focused routine.",
+      "Your routine demands more than a single focus. ALPHA 24 brings NITROXAR, ANDROZAR and NIGHT RECOVERY together in one bundle centred on blood flow, men’s vitality and evening relaxation.",
+    long_description: [
+      "From physical activity to personal wellbeing and your nighttime wind-down, give every part of your routine the attention it deserves.",
+    ],
     category: "stack",
     image: alpha24StackImage,
     price: 129,
@@ -632,10 +552,94 @@ export const PRODUCTS = [
       heading: "What’s in the stack",
       numbered: false,
       items: [
-        { wide: true, name: "ANDROZAR", image: bannerAndrozar, alt: "Testosterone & Men’s Vitality — ANDROZAR", href: "/product/androzar", cta: "View ANDROZAR" },
-        { wide: true, name: "NITROXAR", image: bannerNitroxar, alt: "Nitric Oxide & Blood Flow — NITROXAR", href: "/product/nitroxar", cta: "View NITROXAR" },
-        { wide: true, name: "NIGHT RECOVERY", image: bannerNightRecovery, alt: "Rest. Relax. Recover. — NIGHT RECOVERY", href: "/product/night-recovery", cta: "View NIGHT RECOVERY" },
+        // NITROXAR
+        { wide: true, image: bannerNitroxar, alt: "Nitric Oxide & Blood Flow — NITROXAR" },
+        {
+          name: "NITROXAR — Blood Flow & Physical Performance",
+          image: alpha24PosterNitroxar,
+          alt: "NITROXAR — built around blood flow",
+          width: 1024,
+          height: 1536,
+          paragraphs: [
+            "Built around L-Citrulline, with beetroot and epimedium extracts, NITROXAR focuses on circulation—a key part of delivering oxygen and nutrients to working muscles.",
+          ],
+          list: {
+            label: "Designed to support:",
+            items: [
+              "Healthy blood flow and circulation.",
+              "Muscle pump during exercise.",
+              "Physical performance during demanding activity.",
+            ],
+          },
+          href: "/product/nitroxar",
+          cta: "View NITROXAR",
+        },
+        // ANDROZAR (new bottle image — the old poster/banner showed the previous formula)
+        {
+          name: "ANDROZAR — Men’s Daily Vitality",
+          image: androzarBottle,
+          alt: "ANDROZAR — Power to Perform",
+          width: 1254,
+          height: 1254,
+          paragraphs: [
+            "Featuring Epimedium, Panax Ginseng and an Energy & Performance Blend, with a daily foundation of vitamins and minerals, ANDROZAR brings a dedicated focus to men’s vitality and everyday wellbeing.",
+          ],
+          list: {
+            label: "Designed for men who prioritise:",
+            items: [
+              "Daily vitality and an active lifestyle.",
+              "Consistency in their wellbeing routine.",
+              "Personal wellbeing beyond the gym.",
+            ],
+          },
+          href: "/product/androzar",
+          cta: "View ANDROZAR",
+        },
+        // NIGHT RECOVERY
+        { wide: true, image: bannerNightRecovery, alt: "Rest. Relax. Recover. — NIGHT RECOVERY" },
+        {
+          name: "NIGHT RECOVERY — Rest & Relaxation",
+          image: alpha24PosterNight,
+          alt: "NIGHT RECOVERY — make time to unwind",
+          width: 1024,
+          height: 1536,
+          paragraphs: [
+            "Your evening deserves the same commitment as your day. Featuring valerian root, magnesium and passionflower, NIGHT RECOVERY is designed to complement your bedtime routine.",
+          ],
+          list: {
+            label: "Designed to support:",
+            items: [
+              "Relaxation as the day comes to an end.",
+              "A calmer transition towards bedtime.",
+              "A consistent nighttime wind-down.",
+            ],
+          },
+          href: "/product/night-recovery",
+          cta: "View NIGHT RECOVERY",
+        },
+        // Closing sections
+        {
+          wide: true,
+          name: "Men’s Wellbeing. A More Personal Focus.",
+          paragraphs: [
+            "Your wellbeing matters in the moments you share, too. Healthy circulation plays a role in normal sexual function, giving blood flow a purpose beyond exercise.",
+            "ALPHA 24 brings this personal side of wellbeing into the picture, alongside everyday vitality and time to unwind. For men who value an active life and a close connection with their partner.",
+          ],
+        },
+        {
+          wide: true,
+          name: "Why choose Alpha 24?",
+          paragraphs: [
+            "Because your goals extend across the whole day.",
+            "NITROXAR focuses on blood flow and physical performance. ANDROZAR focuses on men’s vitality. NIGHT RECOVERY adds a dedicated evening formula.",
+            "Three focused formulas. Clearly disclosed doses. One convenient bundle.",
+          ],
+        },
       ],
+      closing: {
+        heading: "Live stronger. Every day.",
+        cta: "Shop Alpha 24 Stack",
+      },
     },
     sort_order: 12,
   },

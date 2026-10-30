@@ -10,7 +10,7 @@ const REVIEWS = [
     rating: 5,
   },
   {
-    quote: "The stack keeps me consistent for the first time. KORZIX every morning, EXPLOVEX before training — I feel the difference every week.",
+    quote: "The stack keeps me consistent for the first time. ANDROZAR every morning, EXPLOVEX before training — I feel the difference every week.",
     name: "Priya S.",
     role: "CrossFit Athlete",
     rating: 5,

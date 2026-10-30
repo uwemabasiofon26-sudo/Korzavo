@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: "What is the Complete Performance Stack?",
-    a: "It's all five supplements — EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
+    a: "It's all five supplements — EXPLOVEX, ANDROZAR, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
   },
   {
     q: "How should I use EXPLOVEX?",

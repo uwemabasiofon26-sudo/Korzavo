@@ -246,11 +246,11 @@ export default function ProductDetail() {
 
             {/* SCIENTIFIC RESEARCH — products with their own ingredient story
                 (see IngredientStory below) already cover each ingredient. */}
-            {product.ingredients?.length > 0 && !product.story && (
+            {product.ingredients?.length > 0 && (!product.story || product.show_research) && (
               <div>
                 <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">Scientific Research</h2>
                 <div className="space-y-4">
-                  {product.ingredients
+                  {(product.research_ingredients || product.ingredients)
                     .map((ing) => ({ ing, res: researchForIngredient(ing) }))
                     .filter((x) => x.res)
                     .map((x, i) => (
@@ -267,7 +267,7 @@ export default function ProductDetail() {
         </div>
 
         {/* INGREDIENT STORY (optional, per product) */}
-        <IngredientStory product={product} />
+        <IngredientStory product={product} onCta={handleAdd} />
 
         {/* RELATED */}
         {related.length > 0 && (
