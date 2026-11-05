@@ -51,10 +51,20 @@ export const INGREDIENT_RESEARCH = {
     note: "Panax ginseng ginsenosides modulate the HPA axis and nitric oxide pathways. Supplementation is associated with reduced fatigue and improved subjective vitality in controlled studies.",
     ref: "Kim et al., J Ginseng Res. 2013.",
   },
-  "premium protein blend": {
-    name: "Premium Protein Blend",
-    note: "Supplementing with ~20–40 g of high-quality protein post-exercise supports muscle protein synthesis. The International Society of Sports Nutrition recommends 1.4–2.0 g/kg/day for athletes.",
-    ref: "Jäger et al., J Int Soc Sports Nutr. 2017.",
+  "rhodiola rosea extract": {
+    name: "Rhodiola rosea Extract",
+    note: "Rhodiola rosea is an adaptogenic root traditionally used to support resilience to physical and mental fatigue. Systematic reviews of human trials suggest it may help with fatigue during stressful periods, although study quality varies and more research is needed.",
+    ref: "Hung et al., Phytomedicine. 2011; Ishaque et al., BMC Complement Altern Med. 2012.",
+  },
+  "bitter orange extract": {
+    name: "Bitter Orange Extract",
+    note: "Bitter orange (Citrus aurantium) extract is a natural source of p-synephrine. It has been studied, often alongside caffeine, for energy expenditure and exercise-related outcomes; effects depend on dose and formulation, and people sensitive to stimulants should use it with care.",
+    ref: "Stohs, Phytother Res. 2017 (Citrus aurantium extract and p-synephrine: safety, efficacy and mechanisms).",
+  },
+  "creatine monohydrate": {
+    name: "Creatine Monohydrate",
+    note: "Creatine monohydrate is one of the most extensively studied sports supplements. Daily supplementation is shown to support strength, power output and training adaptations, particularly when combined with resistance training.",
+    ref: "Kreider et al., J Int Soc Sports Nutr. 2017 (ISSN position stand on creatine supplementation).",
   },
   "rhodiola rosea extract": {
     name: "Rhodiola rosea Extract",
@@ -70,11 +80,6 @@ export const INGREDIENT_RESEARCH = {
     name: "L-Theanine",
     note: "L-Theanine is an amino acid found in tea leaves, commonly paired with caffeine in pre-workout formulas. Research suggests the combination supports focus and attention while smoothing out the jittery edge of stimulants alone.",
     ref: "Haskell et al., Biol Psychol. 2008 (L-theanine and caffeine combination on cognition).",
-  },
-  "maltodextrin": {
-    name: "Maltodextrin",
-    note: "Maltodextrin is a fast-digesting carbohydrate derived from starch. It empties from the stomach quickly and is readily absorbed, making it a practical fuel source around training and a common choice for supporting muscle glycogen replenishment after exercise.",
-    ref: "Burke et al., J Sports Sci. 2011 (carbohydrates for training and competition).",
   },
   "oyster extract": {
     name: "Oyster Extract",

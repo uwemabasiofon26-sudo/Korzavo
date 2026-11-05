@@ -19,7 +19,7 @@ const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
   { t: "Fully disclosed formulas", d: "Every ingredient and dose printed clearly. No proprietary blends hiding under-dosed filler." },
   { t: "Effective, practical dosages", d: "Clinical, functional amounts that actually move the needle session after session." },
-  { t: "Individual or complete stack", d: "Buy what you need, or grab the complete system and save." },
+  { t: "Individual or stacked", d: "Buy what you need, or pick a ready-made stack and save." },
   { t: "Built for consistency", d: "Designed to support long-term progress, not a single hype cycle." },
 ];
 
@@ -39,7 +39,7 @@ function Rating({ value = 4.9, count = 128, className }) {
 export default function Home() {
   useSEO({
     title: "Performance Nutrition & Supplements",
-    description: "Korzavo is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein and recovery formulas — no proprietary blends, ever.",
+    description: "Korzavo is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, daily performance and recovery formulas — no proprietary blends, ever.",
     path: "/",
   });
 
@@ -63,13 +63,6 @@ export default function Home() {
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const featured = supplements;
-  const stack = all.find((p) => p.id === "complete-stack");
-  const stackPrice = stack?.price || 259.99;
-  // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
-  // the line-through price and "Save $X" text separately, so they can't
-  // drift out of sync again.
-  const stackIndividualValue = 323.95;
-  const stackSavings = stackIndividualValue - stackPrice;
 
   return (
     <div className="bg-av-deep">

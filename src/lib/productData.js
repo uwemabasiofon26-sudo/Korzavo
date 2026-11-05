@@ -5,10 +5,6 @@
 import explovexBottle from "@/assets/products/korzavo-explovex.jpg";
 import explovexFacts from "@/assets/products/korzavo-explovex-facts.jpg";
 import creatineBottle from "@/assets/products/korzavo-creatine.jpg";
-import creatineFacts from "@/assets/products/korzavo-creatine-facts.jpg";
-import growBottle from "@/assets/products/korzavo-grow.jpg";
-import glycoloadBottle from "@/assets/products/korzavo-glycoload.jpg";
-import stackBottle from "@/assets/products/korzavo-stack.jpg";
 import nitroxarBottle from "@/assets/products/korzavo-nitroxar.jpg";
 import nitroxarFacts from "@/assets/products/korzavo-nitroxar-facts.jpg";
 import androzarBottle from "@/assets/products/korzavo-androzar.jpg";
@@ -74,28 +70,26 @@ export const PRODUCTS = [
     inStock: true,
     slug: "explovex",
     name: "EXPLOVEX",
+    display_name: "EXPLOVEX™",
     tagline: "Extreme Pre-Workout",
+    headline: "Maximum Pump & Performance",
     description:
-      "A high-intensity pre-workout built for pump, endurance and focus — Raspberry Lemonade flavour, dosed for output that lasts the whole session.",
+      "Extreme pre-workout built for maximum pump and performance — 6,000 mg L-Citrulline, 3,000 mg Taurine and 1,000 mg L-Arginine per serving. Unflavoured.",
     category: "supplement",
     image: explovexBottle,
-    supplement_facts_image: explovexFacts,
     price: 69.99,
     benefits: [
+      "Maximum pump & performance",
       "Supports nitric oxide production and blood flow",
-      "Buffers muscular fatigue during high-intensity sets",
-      "Clean, dosed stimulation without the crash",
+      "Three clearly dosed ingredients, unflavoured",
     ],
-    // Dosages below match the Supplement Facts panel.
     ingredients: [
-      "L-Citrulline — 4500mg",
-      "L-Arginine — 2500mg",
-      "Taurine — 2000mg",
-      "L-Theanine — 150mg",
-      "Caffeine Anhydrous — 150mg",
+      "L-Citrulline — 6000mg",
+      "Taurine — 3000mg",
+      "L-Arginine — 1000mg",
     ],
     servings: "20 servings",
-    size: "200g · Raspberry Lemonade",
+    size: "300g · Unflavoured",
     usage: "Mix 1 scoop with water 20–30 minutes before training.",
     sort_order: 1,
   },
@@ -103,79 +97,25 @@ export const PRODUCTS = [
     id: "creatine",
     inStock: true,
     slug: "creatine",
-    name: "CREATINE",
-    tagline: "Creatine + Electrolytes",
+    name: "CREATINE MONOHYDRATE",
+    tagline: "100% Pure Creatine Monohydrate",
     description:
-      "Creatine and electrolytes for strength, performance and hydration — Raspberry Lemonade flavour, easy to mix any time of day.",
+      "100% pure creatine monohydrate — 5,000 mg per serving, unflavoured and easy to mix any time of day.",
     category: "supplement",
     image: creatineBottle,
-    supplement_facts_image: creatineFacts,
     price: 44.99,
     benefits: [
       "Supports strength and power output",
-      "Electrolytes for hydration support",
-      "Simple, effective daily dose",
+      "100% pure creatine monohydrate",
+      "Simple, effective daily dose of 5,000 mg",
     ],
     ingredients: [
-      "Creatine — 5000mg",
-      "Sodium — 300mg",
-      "Potassium — 200mg",
+      "Creatine Monohydrate — 5000mg",
     ],
-    servings: "30 servings",
-    size: "250g · Raspberry Lemonade",
+    servings: "50 servings",
+    size: "300g · Unflavoured",
     usage: "Mix 1 scoop with water, any time of day.",
     sort_order: 3,
-  },
-  {
-    id: "grow",
-    inStock: true,
-    slug: "grow",
-    name: "GROW",
-    tagline: "Premium Protein",
-    description:
-      "A smooth, creamy 25g protein blend designed for easy mixing and real recovery — Chocolate Hazelnut flavour, no compromise.",
-    category: "supplement",
-    image: growBottle,
-    price: 89.99,
-    benefits: [
-      "25g of protein per serving",
-      "Smooth, creamy texture that mixes easily",
-      "Supports post-training muscle recovery",
-    ],
-    ingredients: ["Premium Protein Blend — 25g"],
-    servings: "~33 servings",
-    size: "1kg · Chocolate Hazelnut",
-    usage: "Mix 1–2 scoops with water or milk post-workout.",
-    sort_order: 4,
-  },
-  {
-    id: "glycoload",
-    inStock: true,
-    slug: "glycoload",
-    name: "GLYCOLOAD",
-    tagline: "Fast-Digesting Carbohydrate",
-    description:
-      "A fast-digesting maltodextrin carbohydrate powder for athletes and gym users who need convenient training fuel — Raspberry Lemonade flavour, mixes easily with water, use before, during or after training.",
-    category: "supplement",
-    image: glycoloadBottle,
-    // Launch pricing: selling at 39.99, regular RRP 44.99. The
-    // compare_at_price renders as a struck-through "was" price next to the
-    // live price; remove this field to end the launch offer.
-    price: 39.99,
-    compare_at_price: 44.99,
-    benefits: [
-      "Fast-digesting carbohydrate source",
-      "Helps support muscle glycogen replenishment after exercise",
-      "Provides convenient training fuel",
-      "Suitable before, during or after training",
-      "Easy to mix with water or your favourite sports drink",
-      "Easy way to increase daily carbohydrate intake",
-    ],
-    ingredients: ["Maltodextrin"],
-    servings: "1kg pouch",
-    size: "1kg · Raspberry Lemonade",
-    usage: "Mix the recommended serving with water and shake until fully dissolved. Can be used pre-workout, intra-workout or post-workout. Amount required depends on body weight, training duration and individual carbohydrate needs.",
-    sort_order: 5,
   },
   {
     id: "nitroxar",
@@ -477,8 +417,9 @@ export const PRODUCTS = [
     inStock: true,
     slug: "dominance-stack",
     name: "DOMINANCE STACK",
+    display_name: "DOMINANCE STACK™",
     tagline: "NITROXAR™ + ANDROZAR",
-    headline: "Two formulas. One focused routine.",
+    headline: "Energy. Focus. Blood Flow.",
     description:
       "Bring circulation-focused ingredients and everyday vitality and energy support into one thoughtfully selected bundle.",
     long_description: [
@@ -673,10 +614,13 @@ export const PRODUCTS = [
     inStock: true,
     slug: "performance-stack",
     name: "PERFORMANCE STACK",
+    display_name: "PERFORMANCE STACK™",
     tagline: "EXPLOVEX + CREATINE",
-    headline: "Power your next level.",
+    headline: "Pump. Strength. Performance.",
     description:
-      "Support your training goals with a powerful pairing of EXPLOVEX Pre-Workout and Creatine + Electrolytes—in refreshing Raspberry Lemonade.",
+      "Two powerful formulas. One performance-focused routine — EXPLOVEX Pre-Workout and Creatine Monohydrate together to support nitric oxide pathways and muscular energy production.",
+    meta_description:
+      "KORZAVO PERFORMANCE STACK™ brings together EXPLOVEX Pre-Workout and Pure Creatine Monohydrate to support nitric oxide pathways and muscular energy production.",
     category: "stack",
     image: performanceStackImage,
     price: 94,
@@ -684,24 +628,203 @@ export const PRODUCTS = [
       { id: "explovex", quantity: 1 },
       { id: "creatine", quantity: 1 },
     ],
-    benefits: [
-      "Pump & Performance — Support your muscle pump and get ready for demanding training sessions.",
-      "Strength & Power — Support strength and repeated high-intensity performance with consistent daily creatine use.",
-      "Hydration Support — Added electrolytes complement your hydration routine during training.",
-      "Built for Progress — Pair your stack with consistent training, balanced nutrition, and recovery to work towards your goals.",
-    ],
-    closing_line: "Two products. One goal. Your next level.",
-    story: {
-      eyebrow: "Inside the Stack",
-      heading: "EXPLOVEX + CREATINE",
-      numbered: false,
-      items: [
-        {
-          wide: true,
-          image: performanceStackBanner,
-          alt: "Power your next level. EXPLOVEX plus CREATINE — the Performance Stack.",
-        },
+    landing: {
+      subtitle: "Two Powerful Formulas. One Performance-Focused Routine.",
+      intro: [
+        "The KORZAVO PERFORMANCE STACK™ brings together EXPLOVEX™ Pre-Workout and Pure Creatine Monohydrate to support two essential aspects of training: nitric oxide pathways and muscular energy production.",
+        "Designed for dedicated lifters, fitness enthusiasts, and performance-driven individuals who want to get more from their training.",
       ],
+      gallery: [
+        { src: performanceStackImage, alt: "Performance Stack — EXPLOVEX and Creatine Monohydrate" },
+        { src: explovexBottle, alt: "EXPLOVEX Extreme Pre-Workout" },
+        { src: creatineBottle, alt: "Creatine Monohydrate" },
+      ],
+      trust: [
+        { icon: "package", label: "2 complete formulas" },
+        { icon: "shield", label: "Full ingredient doses" },
+        { icon: "truck", label: "Ships within NZ" },
+      ],
+
+      benefits: {
+        eyebrow: "Benefits",
+        heading: "Six key benefits",
+        items: [
+          {
+            title: "Supports Nitric Oxide Production & Muscle Pump",
+            paragraphs: [
+              "EXPLOVEX™ delivers 6,000mg of L-Citrulline alongside 1,000mg of L-Arginine. These amino acids participate in the body’s nitric oxide production pathway, which helps regulate blood vessel relaxation and circulation.",
+              "This makes EXPLOVEX™ a circulation-focused addition to a pre-workout routine, particularly for individuals seeking a fuller muscle pump during resistance training. Individual responses may vary.",
+            ],
+          },
+          {
+            title: "Enhances Strength & Explosive Power",
+            paragraphs: [
+              "Creatine Monohydrate helps replenish phosphocreatine stores in skeletal muscle, supporting the rapid regeneration of ATP, the energy used during short bursts of high-intensity exercise.",
+              "With consistent daily supplementation, creatine can improve performance during activities such as heavy lifting, sprinting, and repeated explosive movements.",
+            ],
+          },
+          {
+            title: "Supports Training Volume & Workout Capacity",
+            paragraphs: [
+              "Creatine supports repeated high-intensity efforts, potentially helping athletes perform more work across demanding training sessions.",
+              "EXPLOVEX™ complements this approach with ingredients selected for nitric oxide pathways and muscular function, making the stack suitable for strength-focused and high-volume workouts.",
+            ],
+          },
+          {
+            title: "Supports Muscular Function & Exercise Performance",
+            paragraphs: [
+              "Each serving of EXPLOVEX™ provides 3,000mg of Taurine, an amino compound involved in cellular fluid balance and normal muscle function.",
+              "Research suggests Taurine supplementation may provide modest benefits in certain exercise-performance measures, although results vary between individuals and exercise types.",
+            ],
+          },
+          {
+            title: "Supports Muscle Development Through Better Training",
+            paragraphs: [
+              "Creatine supplementation, combined with a consistent resistance-training programme, can support increases in lean mass and strength over time.",
+              "By combining daily creatine with a pre-workout formula, PERFORMANCE STACK™ offers a convenient routine for individuals working towards long-term strength and muscle-development goals.",
+            ],
+          },
+          {
+            title: "Two Complementary Approaches to Performance",
+            paragraphs: [
+              "Rather than focusing on only one aspect of a workout, PERFORMANCE STACK™ combines:",
+            ],
+            bullets: [
+              "Nitric oxide pathway support.",
+              "Rapid muscular energy regeneration.",
+              "Support for repeated high-intensity exercise.",
+              "Muscular function support.",
+              "A convenient pre-workout and daily creatine routine.",
+            ],
+          },
+        ],
+      },
+
+      how: {
+        eyebrow: "How it works",
+        heading: "How PERFORMANCE STACK™ works",
+        steps: [
+          {
+            title: "The nitric oxide pathway",
+            paragraphs: [
+              "L-Citrulline is converted into L-Arginine in the body. Arginine serves as a precursor for nitric oxide, a molecule involved in regulating blood vessel relaxation.",
+              "This pathway is relevant to circulation and the muscle-pump response during exercise, although increased blood flow or pump is not guaranteed.",
+            ],
+          },
+          {
+            title: "Muscular function",
+            paragraphs: [
+              "Taurine participates in processes involving muscle-cell fluid regulation and calcium handling, both important aspects of normal muscular function.",
+              "Supplementation may support some aspects of exercise performance, but benefits are not consistently demonstrated across all types of training.",
+            ],
+          },
+          {
+            title: "Rapid energy regeneration",
+            paragraphs: [
+              "Creatine increases available muscular phosphocreatine stores over time.",
+              "During intense exercise, phosphocreatine helps regenerate ATP, supporting the repeated muscular contractions required for weightlifting, sprinting, and explosive movements.",
+            ],
+          },
+          {
+            title: "Long-term training adaptation",
+            paragraphs: [
+              "Consistent creatine supplementation, alongside progressive resistance training, may help individuals achieve greater training adaptations, including improvements in strength and lean mass.",
+            ],
+          },
+        ],
+        result: {
+          label: "The result",
+          text: "A complementary performance routine combining pre-workout nitric oxide pathway support with evidence-backed creatine supplementation for high-intensity training.",
+        },
+      },
+
+      products: {
+        eyebrow: "The formulas",
+        heading: "Individual product benefits",
+        items: [
+          {
+            id: "explovex",
+            kicker: "Extreme Pre-Workout",
+            specs: ["20 Servings", "300 g", "Unflavoured"],
+            groups: [
+              {
+                items: [
+                  {
+                    label: "6,000mg L-Citrulline",
+                    image: stackCitrulline,
+                    bullets: [
+                      "Supports the body’s nitric oxide production pathway.",
+                      "Contributes to the availability of arginine for nitric oxide synthesis.",
+                      "Designed for circulation-focused pre-workout support.",
+                    ],
+                  },
+                  {
+                    label: "3,000mg Taurine",
+                    image: stackTaurine,
+                    bullets: [
+                      "Supports normal muscular and cellular function.",
+                      "Plays a role in calcium regulation and cellular fluid balance.",
+                      "May help support selected exercise-performance outcomes.",
+                    ],
+                  },
+                  {
+                    label: "1,000mg L-Arginine",
+                    image: stackArginine,
+                    bullets: [
+                      "Serves as a substrate for nitric oxide production.",
+                      "Complements the formula’s nitric oxide-focused ingredient profile.",
+                      "Provides additional arginine, although direct performance benefits at this dose are not established.",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: "creatine",
+            kicker: "Strength & Power",
+            specs: ["50 Servings", "300 g", "Unflavoured"],
+            groups: [
+              {
+                items: [
+                  {
+                    label: "Creatine Monohydrate — 5,000mg per serving",
+                    image: stackCreatine,
+                    bullets: [
+                      "Supports rapid ATP regeneration during high-intensity exercise.",
+                      "Improves performance in repeated, short-duration, high-intensity efforts.",
+                      "Supports strength and power development.",
+                      "Helps improve training adaptations when combined with resistance exercise.",
+                      "Can support gains in lean mass alongside consistent resistance training.",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+
+      education: {
+        eyebrow: "Fitness education",
+        heading: "Training perspective",
+        label: "General educational commentary, not an individual professional endorsement.",
+        paragraphs: [
+          "When building a performance-focused training routine, it helps to look at more than just the immediate pre-workout experience. Supporting muscular energy availability and maintaining consistent training quality are important for long-term progress.",
+          "The KORZAVO PERFORMANCE STACK™ combines a citrulline-based pre-workout formula with creatine monohydrate, one of the most extensively researched supplements for high-intensity exercise.",
+          "It’s a practical combination for strength-focused individuals who want to approach their training with consistency and purpose.",
+        ],
+        attribution: "KORZAVO Educational Content",
+      },
+
+      why: {
+        tagline: "Train hard. Build strength. Push your performance.",
+        name: "PERFORMANCE STACK™",
+        signoff: "Two formulas. One goal. A stronger training routine.",
+      },
+
+      disclaimer:
+        "Individual results vary. Follow the final product labels. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
     },
     sort_order: 10,
   },

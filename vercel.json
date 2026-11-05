@@ -36,7 +36,7 @@
     },
     {
       "source": "/product/fuel",
-      "destination": "/product/glycoload",
+      "destination": "/shop",
       "permanent": true
     },
     {

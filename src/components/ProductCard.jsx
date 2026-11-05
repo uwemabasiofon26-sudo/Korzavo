@@ -29,12 +29,21 @@ export default function ProductCard({ product, index = 0 }) {
     >
       <Link to={`/product/${product.slug}`} className="relative block overflow-hidden frame-corner">
         <div className="aspect-[4/5] overflow-hidden bg-av-teal/20">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fittingType="fill"
-            className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
-          />
+          {product.category === "stack" ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              loading="lazy"
+              className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fittingType="fill"
+              className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          )}
         </div>
       </Link>
 

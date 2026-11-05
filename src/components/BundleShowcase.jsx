@@ -13,7 +13,7 @@ const BUNDLES = [
   {
     id: "dominance-stack",
     kicker: "NITROXAR™ + ANDROZAR",
-    hook: "Two formulas. One focused routine.",
+    hook: "Energy. Focus. Blood flow.",
     teaser:
       "Circulation-focused ingredients on one side, everyday vitality and energy support on the other. Two distinct profiles, thoughtfully paired for people who train with purpose and care about everyday wellbeing.",
     cta: "Unlock the Dominance Stack",
@@ -29,9 +29,9 @@ const BUNDLES = [
   {
     id: "performance-stack",
     kicker: "EXPLOVEX + CREATINE",
-    hook: "Power your next level.",
+    hook: "Pump. Strength. Performance.",
     teaser:
-      "Pre-workout meets creatine and electrolytes — a powerful pairing for demanding sessions, in refreshing Raspberry Lemonade. Two products. One goal.",
+      "Two powerful formulas, one performance-focused routine: EXPLOVEX Pre-Workout for nitric oxide pathway support and Creatine Monohydrate for muscular energy. Two products. One goal.",
     cta: "Shop the Performance Stack",
   },
   {

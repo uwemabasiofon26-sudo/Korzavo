@@ -16,12 +16,6 @@ const REVIEWS = [
     rating: 5,
   },
   {
-    quote: "GROW mixes smooth and actually tastes good. 25g of clean protein post-workout has made a real difference to my recovery.",
-    name: "Daniel K.",
-    role: "Bodybuilder",
-    rating: 5,
-  },
-  {
     quote: "Fully disclosed formulas sold me. I know exactly what I'm putting in my body. That's rare and it matters.",
     name: "Aroha M.",
     role: "Hybrid Athlete",

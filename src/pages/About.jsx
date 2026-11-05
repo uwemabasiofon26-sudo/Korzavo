@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "How should I use EXPLOVEX?",
-    a: "Mix 1 scoop (15 g) with water 20–30 minutes before training. Start with a half scoop to assess tolerance if you're sensitive to caffeine. Do not exceed one serving per day.",
+    a: "Mix 1 scoop (15 g) with water 20–30 minutes before training. Do not exceed one serving per day.",
   },
 ];
 
