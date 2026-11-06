@@ -8,19 +8,19 @@ import { useSEO } from "@/hooks/useSEO";
 const FAQS = [
   {
     q: "How are the formulas disclosed?",
-    a: "Every product lists its full ingredient breakdown with exact dosages — no proprietary blends. Supplement facts are printed on each product page and on the packaging.",
+    a: "Every product page lists its ingredients and amounts, and the Supplement Facts are shown on each product page and printed on the packaging.",
   },
   {
     q: "What currency are prices shown in?",
     a: "All prices are in New Zealand Dollars (NZD). We currently ship within New Zealand.",
   },
   {
-    q: "What is the Complete Performance Stack?",
-    a: "It's all five supplements — EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
+    q: "What stacks does Korzavo offer?",
+    a: "We offer ready-made stacks that cost less than buying the products separately: the Performance Stack (EXPLOVEX + CREATINE), the Dominance Stack (NITROXAR + ANDROZAR), the Alpha 24 Stack (NITROXAR + ANDROZAR + NIGHT RECOVERY) and NIGHT RECOVERY in a 3-bottle pack. You can also build your own on The Stack page.",
   },
   {
     q: "How should I use EXPLOVEX?",
-    a: "Mix 1 scoop (15 g) with water 20–30 minutes before training. Start with a half scoop to assess tolerance if you're sensitive to caffeine. Do not exceed one serving per day.",
+    a: "Mix 1 scoop (15 g) with water 20–30 minutes before training. Do not exceed one serving per day.",
   },
 ];
 
@@ -60,7 +60,7 @@ function FaqItem({ item, index }) {
 export default function About() {
   useSEO({
     title: "About Us & FAQ",
-    description: "Korzavo is a performance nutrition and supplement brand built on fully disclosed formulas — no proprietary blends. Learn our story and get answers to common questions.",
+    description: "Korzavo is a performance nutrition and supplement brand built on clearly labelled formulas. Learn our story and get answers to common questions.",
     path: "/about",
     structuredData: {
       "@context": "https://schema.org",
@@ -86,7 +86,7 @@ export default function About() {
         <div className="mt-12 grid md:grid-cols-3 gap-px bg-av-teal/30 border border-av-teal/30">
           {[
             { t: "Purpose-built", d: "Products engineered around real training demands — not generic wellness trends." },
-            { t: "Fully disclosed", d: "Every ingredient and dose printed clearly. No proprietary blends, no hidden filler." },
+            { t: "Clearly labelled", d: "Ingredients and amounts listed on every product page, with Supplement Facts on the pack." },
             { t: "Effective dosages", d: "Clinical, functional amounts that move the needle session after session." },
           ].map((c, i) => (
             <ScrollReveal key={i} delay={i * 0.08} className="bg-av-deep p-8 md:p-10">

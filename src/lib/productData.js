@@ -3,14 +3,7 @@
 // To add or edit a product, edit this file directly and redeploy.
 
 import explovexBottle from "@/assets/products/korzavo-explovex.jpg";
-import explovexFacts from "@/assets/products/korzavo-explovex-facts.jpg";
-import korzixBottle from "@/assets/products/korzavo-korzix.jpg";
-import korzixFacts from "@/assets/products/korzavo-korzix-facts.jpg";
 import creatineBottle from "@/assets/products/korzavo-creatine.jpg";
-import creatineFacts from "@/assets/products/korzavo-creatine-facts.jpg";
-import growBottle from "@/assets/products/korzavo-grow.jpg";
-import glycoloadBottle from "@/assets/products/korzavo-glycoload.jpg";
-import stackBottle from "@/assets/products/korzavo-stack.jpg";
 import nitroxarBottle from "@/assets/products/korzavo-nitroxar.jpg";
 import nitroxarFacts from "@/assets/products/korzavo-nitroxar-facts.jpg";
 import androzarBottle from "@/assets/products/korzavo-androzar.jpg";
@@ -23,28 +16,27 @@ import nightRecoveryBottle from "@/assets/products/korzavo-night-recovery.jpg";
 import nightRecoveryFacts from "@/assets/products/korzavo-night-recovery-facts.jpg";
 
 // Wide banners used inside the bundle pages.
-import dominanceTwoFormulas from "@/assets/bundles/dominance-two-formulas.jpg";
-import dominanceIngredients from "@/assets/bundles/dominance-ingredients.jpg";
-import bannerAndrozar from "@/assets/bundles/androzar-testosterone-vitality.jpg";
 import bannerNitroxar from "@/assets/bundles/nitroxar-nitric-oxide.jpg";
-import performanceStackBanner from "@/assets/bundles/performance-stack-banner.jpg";
+import alpha24PosterNitroxar from "@/assets/bundles/alpha24-nitroxar.jpg";
+import alpha24PosterNight from "@/assets/bundles/alpha24-night-recovery.jpg";
 import bannerNightRecovery from "@/assets/bundles/night-recovery-rest-relax.jpg";
 
 // Ingredient photography used by the "story" sections on product pages.
 import androzarEpimedium from "@/assets/ingredients/androzar-epimedium.jpg";
-import androzarShilajit from "@/assets/ingredients/androzar-shilajit.jpg";
 import androzarPanax from "@/assets/ingredients/androzar-panax-ginseng.jpg";
-import androzarTongkat from "@/assets/ingredients/androzar-tongkat-ali.jpg";
+import androzarEnergy from "@/assets/ingredients/androzar-energy-blend.jpg";
+import androzarVitamins from "@/assets/ingredients/androzar-daily-vitamins.jpg";
+import androzarMinerals from "@/assets/ingredients/androzar-essential-minerals.jpg";
+import dominanceCirculation from "@/assets/ingredients/dominance-circulation.jpg";
+import stackTaurine from "@/assets/ingredients/stack-taurine.jpg";
+import stackArginine from "@/assets/ingredients/stack-l-arginine.jpg";
+import stackCreatine from "@/assets/ingredients/stack-creatine.jpg";
+import stackCitrulline from "@/assets/ingredients/stack-l-citrulline.jpg";
 import nitroxarCitrulline from "@/assets/ingredients/nitroxar-l-citrulline.jpg";
 import nitroxarBeetroot from "@/assets/ingredients/nitroxar-beetroot.jpg";
 import nitroxarZinc from "@/assets/ingredients/nitroxar-zinc.jpg";
 import nitroxarEpimedium from "@/assets/ingredients/nitroxar-epimedium.jpg";
 import nitroxarBlackPepper from "@/assets/ingredients/nitroxar-black-pepper.jpg";
-import korzixOyster from "@/assets/ingredients/korzix-oyster.jpg";
-import korzixMaca from "@/assets/ingredients/korzix-black-maca.jpg";
-import korzixPanax from "@/assets/ingredients/korzix-panax-ginseng.jpg";
-import korzixVitamins from "@/assets/ingredients/korzix-daily-vitamins.jpg";
-import korzixMinerals from "@/assets/ingredients/korzix-essential-minerals.jpg";
 
 // Shape reference (every field used somewhere in the UI):
 // {
@@ -80,228 +72,52 @@ export const PRODUCTS = [
     inStock: true,
     slug: "explovex",
     name: "EXPLOVEX",
+    display_name: "EXPLOVEX™",
     tagline: "Extreme Pre-Workout",
+    headline: "Maximum Pump & Performance",
     description:
-      "A high-intensity pre-workout built for pump, endurance and focus — Raspberry Lemonade flavour, dosed for output that lasts the whole session.",
+      "Extreme pre-workout built for maximum pump and performance — 6,000 mg L-Citrulline, 3,000 mg Taurine and 1,000 mg L-Arginine per serving. Unflavoured.",
     category: "supplement",
     image: explovexBottle,
-    supplement_facts_image: explovexFacts,
     price: 69.99,
     benefits: [
+      "Maximum pump & performance",
       "Supports nitric oxide production and blood flow",
-      "Buffers muscular fatigue during high-intensity sets",
-      "Clean, dosed stimulation without the crash",
+      "Three clearly dosed ingredients, unflavoured",
     ],
-    // Dosages below match the Supplement Facts panel.
     ingredients: [
-      "L-Citrulline — 4500mg",
-      "L-Arginine — 2500mg",
-      "Taurine — 2000mg",
-      "L-Theanine — 150mg",
-      "Caffeine Anhydrous — 150mg",
+      "L-Citrulline — 6000mg",
+      "Taurine — 3000mg",
+      "L-Arginine — 1000mg",
     ],
     servings: "20 servings",
-    size: "200g · Raspberry Lemonade",
+    size: "300g · Unflavoured",
     usage: "Mix 1 scoop with water 20–30 minutes before training.",
     sort_order: 1,
-  },
-  {
-    id: "korzix",
-    inStock: true,
-    slug: "korzix",
-    name: "KORZIX",
-    display_name: "KORZIX™",
-    tagline: "Premium Daily Performance Multi",
-    headline: "Daily nutrition. Everyday ambition.",
-    description:
-      "For men and women who make wellbeing part of their routine. KORZIX brings together 19 vitamins and minerals with Oyster Extract, Black Maca and Panax Ginseng in one daily formula.",
-    meta_description:
-      "KORZIX brings together 19 vitamins and minerals with Oyster Extract, Black Maca and Panax Ginseng in one daily formula for men and women.",
-    long_description: [
-      "Its essential nutrients support normal energy metabolism, immune function and the everyday processes behind muscle and nerve function—while its botanical ingredients bring a tradition of vitality to the blend.",
-      "From busy working days to an active lifestyle, give your daily nutrition the attention it deserves.",
-    ],
-    category: "supplement",
-    image: korzixBottle,
-    supplement_facts_image: korzixFacts,
-    price: 79,
-    benefits: [
-      "19 vitamins and minerals in one daily formula",
-      "Supports normal energy metabolism and immune function",
-      "Supports everyday muscle and nerve function",
-      "Oyster Extract, Black Maca and Panax Ginseng",
-      "For men and women with active lives",
-    ],
-    ingredients: [
-      "19 Vitamins & Minerals (12 vitamins, 7 minerals) — 1 capsule",
-      "Oyster Extract — 1000mg",
-      "Black Maca Extract (10:1) — 1000mg",
-      "Panax Ginseng Extract (20% Ginsenosides) — 300mg",
-    ],
-    servings: "20 servings",
-    size: "6 capsule daily pack · 120 capsules",
-    usage: "Take all 6 capsules together once daily, with food.",
-    allergen: "Contains oyster, a molluscan shellfish.",
-    story: {
-      heading: "19 vitamins & minerals. Three distinctive extracts.",
-      items: [
-        {
-          name: "Oyster Extract",
-          dose: "1,000 mg per serving",
-          image: korzixOyster,
-          headline: "A distinctive marine ingredient",
-          paragraphs: [
-            "Oyster Extract brings a marine origin to KORZIX, complementing its botanical extracts and clearly specified vitamins and minerals.",
-            "Each daily serving provides 1,000 mg of Oyster Extract as one of the formula’s three signature ingredients.",
-            "Together with Black Maca and Panax Ginseng, it gives KORZIX a distinctive identity beyond a conventional multivitamin.",
-          ],
-          tags: "Marine origin • Signature ingredient • Daily formula",
-          note: "Contains oyster, a molluscan shellfish.",
-        },
-        {
-          name: "Black Maca Extract",
-          dose: "1,000 mg per serving | 10:1 Extract",
-          image: korzixMaca,
-          headline: "A tradition of vitality for men and women",
-          paragraphs: [
-            "Native to the Peruvian Andes, maca has been used as a food and traditional botanical for generations.",
-            "Research on specific maca preparations has explored perceived wellbeing and sexual desire in men and women—bringing an everyday-vitality dimension to the conversation around health.",
-            { label: "In the KORZIX formula", text: "Each serving provides 1,000 mg of Black Maca Extract at a 10:1 extraction ratio, complementing the formula’s essential nutrient foundation." },
-            "Whether your priorities include daily wellbeing, intimacy or an active routine, maca brings a distinctive botanical heritage to KORZIX.",
-          ],
-          tags: "Botanical heritage • Vitality research • Everyday wellbeing",
-        },
-        {
-          name: "Panax Ginseng Extract",
-          dose: "300 mg per serving | Standardised to 20% Ginsenosides",
-          image: korzixPanax,
-          headline: "Vitality for life beyond the gym",
-          paragraphs: [
-            "Panax Ginseng has a long tradition of use for vitality, with human research exploring its potential role in general fatigue and wellbeing.",
-            "Its characteristic compounds, called ginsenosides, give this botanical its distinctive identity.",
-            { label: "In the KORZIX formula", text: "Each serving provides 300 mg of Panax Ginseng Extract, standardised to 20% ginsenosides." },
-            "It complements the vitamin and mineral blend, adding a botanical focus on everyday vitality for men and women with busy, active lives.",
-          ],
-          tags: "Traditional vitality • General fatigue research • Standardised extract",
-        },
-        {
-          name: "Daily Vitamins",
-          dose: "12 Vitamins. A Nutritional Foundation.",
-          image: korzixVitamins,
-          headline: "Support the processes behind your day",
-          paragraphs: [
-            "KORZIX combines eight B vitamins with vitamins A, C, D3 and E.",
-            "B vitamins contribute to the normal metabolic processes that allow the body to use nutrients from food. Selected vitamins also support normal nerve function and red blood cell formation.",
-            "Vitamins A, C and D contribute to normal immune function. Vitamin C supports collagen formation, vitamin D supports normal muscle and bone function, and vitamin E contributes to antioxidant protection.",
-            "A nutritional foundation for men and women who value consistent daily care.",
-          ],
-          tags: "Energy metabolism • Immune function • Daily nutrition",
-        },
-        {
-          name: "Essential Minerals",
-          dose: "Seven Minerals. Everyday Roles.",
-          image: korzixMinerals,
-          headline: "Small nutrients. Essential functions.",
-          paragraphs: [
-            "Zinc, magnesium, iodine, selenium, copper, manganese and chromium complete the mineral foundation of KORZIX.",
-            "Magnesium contributes to normal muscle and nerve function and energy metabolism. Zinc supports normal protein synthesis and immune function.",
-            "Iodine contributes to thyroid hormone production, while selenium supports normal thyroid function and antioxidant systems. Copper and manganese participate in essential enzyme processes, and chromium is involved in insulin action and nutrient metabolism.",
-            "Together, these minerals help meet nutritional needs that matter both during daily life and an active routine.",
-          ],
-          tags: "Muscle & nerve function • Nutrient metabolism • Essential nutrition",
-        },
-      ],
-      closing: {
-        heading: "KORZIX™ — Make daily wellbeing part of your routine.",
-        body: "Essential nutrition and distinctive extracts, brought together for men and women with active lives.",
-      },
-    },
-    guarantee: {
-      title: "30-Day Money-Back Guarantee",
-      body: "Try KORZIX with confidence. If you’re not satisfied, contact us within 30 days of receiving your order to request a refund.",
-      note: "Terms and conditions apply.",
-    },
-    disclaimer:
-      "Individual results vary. Follow the final product label. Contains oyster: do not use if allergic to oysters or molluscan shellfish. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
-    sort_order: 2,
   },
   {
     id: "creatine",
     inStock: true,
     slug: "creatine",
-    name: "CREATINE",
-    tagline: "Creatine + Electrolytes",
+    name: "CREATINE MONOHYDRATE",
+    tagline: "100% Pure Creatine Monohydrate",
     description:
-      "Creatine and electrolytes for strength, performance and hydration — Raspberry Lemonade flavour, easy to mix any time of day.",
+      "100% pure creatine monohydrate — 5,000 mg per serving, unflavoured and easy to mix any time of day.",
     category: "supplement",
     image: creatineBottle,
-    supplement_facts_image: creatineFacts,
     price: 44.99,
     benefits: [
       "Supports strength and power output",
-      "Electrolytes for hydration support",
-      "Simple, effective daily dose",
+      "100% pure creatine monohydrate",
+      "Simple, effective daily dose of 5,000 mg",
     ],
     ingredients: [
-      "Creatine — 5000mg",
-      "Sodium — 300mg",
-      "Potassium — 200mg",
+      "Creatine Monohydrate — 5000mg",
     ],
-    servings: "30 servings",
-    size: "250g · Raspberry Lemonade",
+    servings: "50 servings",
+    size: "300g · Unflavoured",
     usage: "Mix 1 scoop with water, any time of day.",
     sort_order: 3,
-  },
-  {
-    id: "grow",
-    inStock: true,
-    slug: "grow",
-    name: "GROW",
-    tagline: "Premium Protein",
-    description:
-      "A smooth, creamy 25g protein blend designed for easy mixing and real recovery — Chocolate Hazelnut flavour, no compromise.",
-    category: "supplement",
-    image: growBottle,
-    price: 89.99,
-    benefits: [
-      "25g of protein per serving",
-      "Smooth, creamy texture that mixes easily",
-      "Supports post-training muscle recovery",
-    ],
-    ingredients: ["Premium Protein Blend — 25g"],
-    servings: "~33 servings",
-    size: "1kg · Chocolate Hazelnut",
-    usage: "Mix 1–2 scoops with water or milk post-workout.",
-    sort_order: 4,
-  },
-  {
-    id: "glycoload",
-    inStock: true,
-    slug: "glycoload",
-    name: "GLYCOLOAD",
-    tagline: "Fast-Digesting Carbohydrate",
-    description:
-      "A fast-digesting maltodextrin carbohydrate powder for athletes and gym users who need convenient training fuel — Raspberry Lemonade flavour, mixes easily with water, use before, during or after training.",
-    category: "supplement",
-    image: glycoloadBottle,
-    // Launch pricing: selling at 39.99, regular RRP 44.99. The
-    // compare_at_price renders as a struck-through "was" price next to the
-    // live price; remove this field to end the launch offer.
-    price: 39.99,
-    compare_at_price: 44.99,
-    benefits: [
-      "Fast-digesting carbohydrate source",
-      "Helps support muscle glycogen replenishment after exercise",
-      "Provides convenient training fuel",
-      "Suitable before, during or after training",
-      "Easy to mix with water or your favourite sports drink",
-      "Easy way to increase daily carbohydrate intake",
-    ],
-    ingredients: ["Maltodextrin"],
-    servings: "1kg pouch",
-    size: "1kg · Raspberry Lemonade",
-    usage: "Mix the recommended serving with water and shake until fully dissolved. Can be used pre-workout, intra-workout or post-workout. Amount required depends on body weight, training duration and individual carbohydrate needs.",
-    sort_order: 5,
   },
   {
     id: "nitroxar",
@@ -422,39 +238,69 @@ export const PRODUCTS = [
     inStock: true,
     slug: "androzar",
     name: "ANDROZAR",
-    tagline: "Testosterone Complex",
-    headline: "Vitality. Drive. Your next challenge.",
+    tagline: "Power to Perform: Energy • Strength • Vitality",
     description:
-      "Your goals go beyond the gym. Feeling engaged in daily life, making time for intimacy and staying committed to training are all part of the same ambition: taking care of yourself.",
+      "ANDROZAR brings a daily foundation of 19 vitamins and minerals together with Epimedium Extract, Panax Ginseng Extract and an Energy & Performance Blend, in one daily pack.",
     meta_description:
-      "ANDROZAR brings together four distinctive extracts—Epimedium, Tongkat Ali, Shilajit and Panax Ginseng—in a formula created with men’s vitality and an active lifestyle in mind.",
+      "ANDROZAR — Power to Perform. A daily pack of 19 vitamins and minerals, Epimedium Extract, Panax Ginseng Extract and an Energy & Performance Blend for energy, strength and vitality.",
     long_description: [
-      "ANDROZAR brings together four distinctive extracts—Epimedium, Tongkat Ali, Shilajit and Panax Ginseng—in a formula created with men’s vitality and an active lifestyle in mind.",
-      "For men pursuing strength and muscle, it belongs alongside the essentials: purposeful training, quality nutrition and consistent recovery.",
+      "Each daily pack is built in three parts: a Daily Health Foundation of vitamins and minerals, a Vitality & Performance pair of standardised extracts, and an Energy & Performance Blend.",
+      "Made for training sessions and demanding workdays alike.",
     ],
     category: "supplement",
     image: androzarBottle,
     supplement_facts_image: androzarFacts,
     price: 79,
     benefits: [
-      "Vitality, drive and stamina",
-      "Four distinctive extracts with clearly specified content",
-      "Created with men’s vitality in mind",
-      "Made for an active lifestyle",
+      "Energy, strength and vitality",
+      "19 vitamins and minerals in one daily pack",
+      "Standardised Epimedium and Panax Ginseng extracts",
+      "Energy & Performance Blend for training sessions and demanding workdays",
     ],
-    // Names and doses match the Supplement Facts image.
+    // Matches the Supplement Facts image: 1 daily pack = 5 capsules
+    // (1 foundation + 3 vitality & performance + 1 energy & performance).
     ingredients: [
+      "Daily Health Foundation: 19 Vitamins & Minerals",
       "Epimedium Extract (10% Icariin) — 1000mg",
-      "Tongkat Ali Extract (100:1) — 500mg",
-      "Shilajit Extract (10% Fulvic Acid) — 500mg",
       "Panax Ginseng Extract (20% Ginsenosides) — 300mg",
+      "Energy & Performance Blend — 470mg (L-Tyrosine, Caffeine Anhydrous, L-Theanine, Rhodiola rosea Extract, Bitter Orange Extract)",
     ],
-    servings: "15 servings",
-    size: "5 capsules per serving · 75 capsules",
-    usage: "Serving size: 5 capsules. Servings per container: 15.",
+    // Ingredients shown in the "Scientific Research" cards (the blend is split
+    // into its components so each gets its own card).
+    show_research: true,
+    research_ingredients: [
+      "19 Vitamins & Minerals",
+      "Epimedium Extract",
+      "Panax Ginseng Extract",
+      "L-Tyrosine",
+      "Caffeine Anhydrous",
+      "L-Theanine",
+      "Rhodiola rosea Extract",
+      "Bitter Orange Extract",
+    ],
+    servings: "20 servings",
+    size: "5 capsules per serving · 100 capsules",
+    usage: "Serving size: 1 daily pack (5 capsules). Servings per container: 20.",
+    disclaimer:
+      "Individual results vary. Follow the final product label. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
     story: {
-      heading: "Four extracts. A clear purpose.",
+      heading: "Inside the daily pack",
       items: [
+        {
+          name: "Energy & Performance Blend",
+          dose: "470 mg per serving",
+          image: androzarEnergy,
+          headline: "Built for training sessions and demanding workdays",
+          paragraphs: [
+            "Designed for gym-goers, office workers, and busy adults who want support for energy, alertness, and focus.",
+            "We added this blend to complement ANDROZAR’s vitamins and botanical extracts, with training sessions and demanding workdays in mind.",
+          ],
+          list: {
+            label: "In the blend",
+            items: ["L-Tyrosine", "Caffeine Anhydrous", "L-Theanine", "Rhodiola rosea Extract", "Bitter Orange Extract"],
+          },
+          tags: "Energy • Alertness • Focus",
+        },
         {
           name: "Epimedium Extract",
           dose: "1,000 mg per serving | Standardised to 10% Icariin",
@@ -463,22 +309,9 @@ export const PRODUCTS = [
           paragraphs: [
             "Male wellbeing includes intimacy as well as physical activity.",
             "Epimedium has a long history of traditional use for sexual vitality. Its distinctive plant compound, icariin, makes it a recognisable ingredient in the conversation around men’s wellbeing.",
-            "ANDROZAR provides 1,000 mg of Epimedium extract per serving, standardised to 10% icariin—a clearly specified contribution to the formula’s male-vitality focus.",
+            "ANDROZAR provides 1,000 mg of Epimedium extract per serving, standardised to 10% icariin—a clearly specified contribution to the formula’s vitality focus.",
           ],
           tags: "Traditional use • Male vitality • Defined extract content",
-        },
-        {
-          name: "Shilajit Extract",
-          dose: "500 mg per serving | Standardised to 10% Fulvic Acid",
-          image: androzarShilajit,
-          headline: "Where vitality meets physical performance research",
-          paragraphs: [
-            "Shilajit brings a distinctive Ayurvedic heritage to the formula.",
-            "A naturally occurring mineral-organic substance, purified Shilajit preparations have been investigated for male hormonal wellbeing and the ability to maintain muscular strength during fatiguing exercise.",
-            "That research makes Shilajit an interesting connection between the two themes behind ANDROZAR: men’s vitality and the demands of an active lifestyle.",
-            "Each serving provides 500 mg of Shilajit extract, standardised to 10% fulvic acid.",
-          ],
-          tags: "Ayurvedic heritage • Male wellbeing • Muscular fatigue research",
         },
         {
           name: "Panax Ginseng Extract",
@@ -486,27 +319,45 @@ export const PRODUCTS = [
           image: androzarPanax,
           headline: "Vitality beyond your workout",
           paragraphs: [
-            "An active life involves more than training.",
-            "Panax Ginseng has a long tradition of use for vitality, with research exploring general fatigue and aspects of male sexual wellbeing.",
-            "It adds an everyday-wellbeing dimension to ANDROZAR, complementing the formula’s focus on men’s vitality.",
-            "Each serving provides 300 mg of Panax Ginseng extract, standardised to 20% ginsenosides.",
+            "Panax Ginseng has a long tradition of use for vitality, with human research exploring its potential role in general fatigue and wellbeing.",
+            "Its characteristic compounds, called ginsenosides, give this botanical its distinctive identity.",
+            { label: "In the ANDROZAR formula", text: "Each serving provides 300 mg of Panax Ginseng Extract, standardised to 20% ginsenosides." },
+            "It complements the vitamin and mineral foundation and the Energy & Performance Blend, adding a botanical focus on everyday vitality for people with busy, active lives.",
           ],
-          tags: "Traditional vitality • Everyday wellbeing • Defined extract content",
+          tags: "Traditional vitality • General fatigue research • Standardised extract",
         },
         {
-          name: "Tongkat Ali Extract",
-          dose: "500 mg per serving | 100:1 Extract",
-          image: androzarTongkat,
-          headline: "Men’s vitality, with an active mindset",
+          name: "Daily Vitamins",
+          dose: "12 Vitamins. A Nutritional Foundation.",
+          image: androzarVitamins,
+          headline: "Support the processes behind your day",
           paragraphs: [
-            "Tongkat Ali brings a Southeast Asian tradition of male vitality to ANDROZAR.",
-            "Also known as Eurycoma longifolia, this botanical has attracted human research into testosterone and male wellbeing using specific extracts.",
-            "Its place in ANDROZAR reflects a focus on men who care about their wellbeing and take their physical goals seriously—from daily activity to consistent resistance training.",
-            "Each serving provides 500 mg of Tongkat Ali extract.",
+            "ANDROZAR combines eight B vitamins with vitamins A, C, D3 and E.",
+            "B vitamins contribute to the normal metabolic processes that allow the body to use nutrients from food. Selected vitamins also support normal nerve function and red blood cell formation.",
+            "Vitamins A, C and D contribute to normal immune function. Vitamin C supports collagen formation, vitamin D supports normal muscle and bone function, and vitamin E contributes to antioxidant protection.",
+            "A nutritional foundation for people who value consistent daily care.",
           ],
-          tags: "Male wellbeing • Botanical heritage • Active living",
+          tags: "Energy metabolism • Immune function • Daily nutrition",
+        },
+        {
+          name: "Essential Minerals",
+          dose: "Seven Minerals. Everyday Roles.",
+          image: androzarMinerals,
+          headline: "Small nutrients. Essential functions.",
+          paragraphs: [
+            "Zinc, magnesium, iodine, selenium, copper, manganese and chromium complete the mineral foundation of ANDROZAR.",
+            "Magnesium contributes to normal muscle and nerve function and energy metabolism. Zinc supports normal protein synthesis and immune function.",
+            "Iodine contributes to thyroid hormone production, while selenium supports normal thyroid function and antioxidant systems. Copper and manganese participate in essential enzyme processes, and chromium is involved in insulin action and nutrient metabolism.",
+            "Together, these minerals help meet nutritional needs that matter both during daily life and an active routine.",
+          ],
+          tags: "Muscle & nerve function • Nutrient metabolism • Essential nutrition",
         },
       ],
+      closing: {
+        heading: "ANDROZAR — Power to perform.",
+        body: "One daily pack. Energy, strength and vitality.",
+        cta: "Add ANDROZAR to Cart",
+      },
     },
     sort_order: 7,
   },
@@ -517,7 +368,7 @@ export const PRODUCTS = [
     name: "NIGHT RECOVERY",
     tagline: "Sleep & Recovery Formula",
     description:
-      "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery — fully disclosed, no proprietary blends.",
+      "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery.",
     category: "supplement",
     image: nightRecoveryBottle,
     supplement_facts_image: nightRecoveryFacts,
@@ -541,32 +392,17 @@ export const PRODUCTS = [
     sort_order: 8,
   },
   {
-    id: "complete-stack",
-    inStock: true,
-    slug: "complete-stack",
-    name: "The Complete Stack",
-    tagline: "Complete Performance System",
-    description:
-      "EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
-    category: "stack",
-    image: stackBottle,
-    price: 259.99,
-    sort_order: 9,
-  },
-  {
     id: "dominance-stack",
     inStock: true,
     slug: "dominance-stack",
     name: "DOMINANCE STACK",
+    display_name: "DOMINANCE STACK™",
     tagline: "NITROXAR™ + ANDROZAR",
-    headline: "Two formulas. One focused routine.",
+    headline: "Energy. Focus. Blood Flow.",
     description:
-      "Bring circulation-focused ingredients and traditional vitality botanicals into one thoughtfully selected bundle.",
-    long_description: [
-      "NITROXAR features L-Citrulline, Beetroot Extract, Epimedium, Zinc and Black Pepper Extract.",
-      "ANDROZAR brings together Epimedium, Tongkat Ali, Shilajit and Panax Ginseng.",
-      "Two distinct ingredient profiles, connecting your interest in training with your commitment to everyday wellbeing.",
-    ],
+      "Two powerful formulas. One complete performance-focused routine — ANDROZAR for energy, strength and vitality, NITROXAR for blood flow and pump.",
+    meta_description:
+      "DOMINANCE STACK™ combines ANDROZAR and NITROXAR: 19 essential vitamins and minerals, botanical extracts, amino acids and energy-focused ingredients in one performance-focused routine.",
     category: "stack",
     image: dominanceStackImage,
     price: 104,
@@ -574,40 +410,261 @@ export const PRODUCTS = [
       { id: "nitroxar", quantity: 1 },
       { id: "androzar", quantity: 1 },
     ],
-    story: {
-      eyebrow: "Inside the Stack",
-      heading: "Inside the Dominance Stack",
-      numbered: false,
-      items: [
-        {
-          wide: true,
-          image: dominanceTwoFormulas,
-          alt: "Two formulas. One focused routine. NITROXAR plus ANDROZAR.",
-        },
-        {
-          wide: true,
-          name: "The Circulation Connection",
-          image: dominanceIngredients,
-          alt: "L-Citrulline and Beetroot, Tongkat Ali and Shilajit, and Panax Ginseng",
-          paragraphs: [
-            "Your working muscles rely on blood flow to deliver oxygen and nutrients.",
-            "L-Citrulline participates in the body’s arginine and nitric-oxide pathways. Nitric oxide helps blood vessels relax—a connection that makes citrulline an ingredient of interest in sports nutrition.",
-            "NITROXAR provides 3,600 mg of L-Citrulline per serving alongside Beetroot Extract and essential zinc.",
-          ],
-          tags: "Circulation science • Active living • Mineral nutrition",
-        },
-        {
-          wide: true,
-          name: "The Vitality Connection",
-          paragraphs: [
-            "An active routine goes beyond the workout.",
-            "ANDROZAR combines Tongkat Ali, Shilajit, Panax Ginseng and Epimedium—ingredients with a history of use in traditional vitality preparations.",
-            "Paired with NITROXAR, the bundle offers a broader selection of ingredients for customers interested in both circulation-focused nutrition and botanical vitality.",
-            "Build your routine around purposeful training, balanced nutrition and quality sleep.",
-          ],
-          tags: "Traditional botanicals • Everyday wellbeing • A focused routine",
-        },
+    // Full sales-page layout (see components/StackLanding.jsx). Names, prices,
+    // images and supplement-facts images come from the included products.
+    landing: {
+      subtitle: "Two powerful formulas. One complete performance-focused routine.",
+      promise: "Fuel your ambition. Support your performance. Own your day.",
+      intro: [
+        "KORZAVO DOMINANCE STACK™ combines two complementary supplement formulas designed around energy metabolism, mental alertness, nutritional support and the body’s natural nitric oxide pathways.",
+        "Featuring ANDROZAR™ — Power to Perform: Energy • Strength • Vitality and NITROXAR™ — Blood Flow Complex, this stack brings together 19 essential vitamins and minerals, botanical extracts, amino acids and energy-focused ingredients.",
+        "Whether you’re preparing for a challenging workout or managing a demanding daily routine, DOMINANCE STACK™ offers a convenient approach to performance-focused supplementation.",
       ],
+      gallery: [
+        { src: dominanceStackImage, alt: "Dominance Stack — NITROXAR and ANDROZAR" },
+        { src: nitroxarBottle, alt: "NITROXAR Blood Flow Complex" },
+        { src: androzarBottle, alt: "ANDROZAR Power to Perform" },
+      ],
+      trust: [
+        { icon: "package", label: "2 complete formulas" },
+        { icon: "shield", label: "Full supplement facts" },
+        { icon: "truck", label: "Ships within NZ" },
+      ],
+
+      // 1. Six key benefits
+      benefits: {
+        eyebrow: "Benefits",
+        heading: "Six key benefits of DOMINANCE STACK™",
+        items: [
+          {
+            title: "Energy & Daily Vitality Support",
+            paragraphs: [
+              "A demanding lifestyle requires consistent energy metabolism and adequate nutritional intake.",
+              "ANDROZAR™ contains a complete foundation of 19 vitamins and minerals, including B1, B2, B3, B5, B6 and B12, which contribute to normal energy metabolism and nervous system function.",
+              "The formula also includes Panax Ginseng Extract, traditionally used in vitality-focused supplementation, alongside an Energy & Performance Blend containing caffeine.",
+            ],
+            why: "Supporting normal energy metabolism and maintaining alertness are important parts of an active daily routine.",
+          },
+          {
+            title: "Mental Focus & Alertness",
+            paragraphs: [
+              "Physical performance begins with mental preparation.",
+              "ANDROZAR™ combines caffeine, L-Tyrosine, L-Theanine and Rhodiola rosea in its Energy & Performance Blend.",
+              "Caffeine helps temporarily increase alertness, while L-Tyrosine is involved in the body’s production of important neurotransmitters. L-Theanine and Rhodiola have also been investigated for their potential roles in cognitive performance and responses to stress.",
+              "The effects of the complete blend depend on the individual ingredient doses.",
+            ],
+            why: "Mental alertness and concentration help support purposeful, focused training and everyday activities.",
+          },
+          {
+            title: "Nitric Oxide & Blood Flow Pathway Support",
+            paragraphs: [
+              "Normal circulation is essential for delivering oxygen and nutrients throughout the body.",
+              "NITROXAR™ contains 3,600mg L-Citrulline, which the body can convert into L-Arginine, a precursor used in nitric oxide production.",
+              "Nitric oxide is a naturally occurring signalling molecule involved in blood vessel relaxation.",
+              "The formula also includes 600mg Beetroot Extract. Nitrate-containing beetroot preparations can contribute to nitric oxide production through an additional pathway, although this depends on the extract’s nitrate content.",
+            ],
+            why: "Nitric oxide metabolism is an important aspect of normal vascular function and circulation.",
+          },
+          {
+            title: "Muscle Pump & Training Support",
+            paragraphs: [
+              "During exercise, blood flow increases to active muscles as the body responds to their oxygen and energy requirements.",
+              "L-Citrulline is commonly used in pre-workout formulations because of its role in nitric oxide production.",
+              "NITROXAR™ brings this circulation-focused ingredient into a convenient capsule formula.",
+            ],
+            why: "The formula is designed around biological pathways relevant to the muscle-pump response during resistance exercise. A larger pump or improved athletic performance is not guaranteed.",
+          },
+          {
+            title: "Muscle Function & Nutritional Support",
+            paragraphs: [
+              "Performance-focused nutrition is about more than stimulants and pre-workout ingredients.",
+              "ANDROZAR™ provides Vitamin D3, Magnesium, Zinc and other essential micronutrients that contribute to important physiological functions.",
+              "Vitamin D and Magnesium are involved in normal muscle function. Zinc contributes to normal protein synthesis, while several B vitamins help the body utilise nutrients through normal metabolism.",
+            ],
+            why: "Adequate micronutrient intake contributes to normal muscle function and helps maintain the nutritional foundation needed for an active lifestyle.",
+          },
+          {
+            title: "Botanical Vitality & Whole-Body Nutrition",
+            paragraphs: [
+              "DOMINANCE STACK™ combines modern nutritional ingredients with traditional botanical extracts.",
+              "ANDROZAR™ provides Panax Ginseng Extract standardised to 20% ginsenosides and Epimedium Extract standardised to 10% icariin.",
+              "NITROXAR™ provides additional Epimedium Extract and Beetroot Extract.",
+              "Panax Ginseng has been studied for possible effects on general fatigue and cognitive function, although clinical findings are mixed. Epimedium remains primarily a traditional botanical ingredient with limited human evidence for performance benefits.",
+            ],
+            why: "The stack combines botanical ingredients with vitamins, minerals and amino acids rather than relying on a single type of supplement.",
+          },
+        ],
+      },
+
+      // 2. How it works
+      how: {
+        eyebrow: "How it works",
+        heading: "How DOMINANCE STACK™ works",
+        steps: [
+          {
+            title: "Supporting normal energy metabolism",
+            paragraphs: [
+              "The body converts nutrients from food into usable energy through numerous metabolic processes.",
+              "B vitamins play important roles as cofactors in these processes.",
+              "ANDROZAR™ supplies a broad range of B vitamins and other essential nutrients that contribute to normal energy metabolism.",
+            ],
+          },
+          {
+            title: "Supporting alertness through the nervous system",
+            paragraphs: [
+              "Caffeine works primarily by blocking adenosine receptors in the brain, temporarily reducing feelings of tiredness and increasing alertness.",
+              "The Energy & Performance Blend also includes L-Tyrosine, L-Theanine and Rhodiola rosea.",
+              "These ingredients have different biological roles, although their effectiveness in the finished formula depends on their individual doses.",
+            ],
+          },
+          {
+            title: "Supporting the nitric oxide pathway",
+            paragraphs: [
+              "L-Citrulline is converted to L-Arginine in the body.",
+              "L-Arginine can then be used to produce nitric oxide, which participates in the regulation of blood vessel relaxation.",
+              "Beetroot may contribute a separate nitrate-based pathway when sufficient nitrate is present.",
+              "Together, these ingredients establish the circulation-focused concept behind NITROXAR™.",
+            ],
+          },
+          {
+            title: "Supporting normal muscle & nervous system function",
+            paragraphs: [
+              "Vitamin D contributes to normal muscle function, while Magnesium participates in nerve signalling and muscle contraction.",
+              "Other micronutrients, including Zinc and Vitamin B6, are involved in normal metabolic processes.",
+              "These nutrients help support normal physiological functions, particularly when dietary intake is inadequate.",
+            ],
+          },
+          {
+            title: "Providing botanical compounds",
+            paragraphs: [
+              "Panax Ginseng contains ginsenosides, and Epimedium contains flavonoids including icariin.",
+              "Both are included as botanical components of the stack.",
+              "Their specific contributions to athletic performance in this finished formulation have not been clinically established.",
+            ],
+          },
+        ],
+        approach: {
+          heading: "The Dominance approach",
+          items: [
+            { name: "ANDROZAR™", line: "Daily Nutrition + Energy & Alertness + Botanical Vitality" },
+            { name: "NITROXAR™", line: "L-Citrulline + Beetroot + Nitric Oxide Pathway Support" },
+            {
+              name: "DOMINANCE STACK™",
+              line: "A complementary routine focused on energy, alertness, nutritional support and circulation-related pathways.",
+              highlight: true,
+            },
+          ],
+        },
+      },
+
+      // 3. Individual product benefits
+      products: {
+        eyebrow: "The formulas",
+        heading: "Individual product benefits",
+        items: [
+          {
+            id: "androzar",
+            kicker: "Power to Perform: Energy • Strength • Vitality",
+            specs: ["20 Servings", "100 Capsules", "5 Capsules Per Serving"],
+            intro:
+              "ANDROZAR™ is a multi-component daily supplement designed to combine essential nutrients with botanical and energy-focused ingredients.",
+            groups: [
+              {
+                title: "A. Daily Health Foundation",
+                sub: "19 Essential Vitamins & Minerals — 1 Capsule",
+                items: [
+                  { label: "Energy Metabolism", text: "Vitamin B1, B2, B3, B5, B6, B7 and B12 contribute to various metabolic processes involved in nutrient utilisation and normal energy production." },
+                  { label: "Normal Muscle Function", text: "Vitamin D3 and Magnesium contribute to normal muscle function, while Magnesium also supports normal nervous system function." },
+                  { label: "Immune Function", text: "Vitamins A, C and D, together with Zinc and Selenium, contribute to the normal function of the immune system." },
+                  { label: "Antioxidant Protection", text: "Vitamins C and E and Selenium contribute to the protection of cells from oxidative stress." },
+                  { label: "Thyroid Function", text: "Iodine and Selenium contribute to normal thyroid function." },
+                  { label: "Everyday Nutritional Support", text: "The formula also provides Folate, Chromium, Copper and Manganese as part of its comprehensive micronutrient foundation." },
+                ],
+              },
+              {
+                title: "B. Vitality & Performance",
+                sub: "3 Capsules Per Serving",
+                items: [
+                  { label: "Epimedium Extract — 1,000mg (10% Icariin)", text: "A standardised botanical extract traditionally used in vitality-focused preparations. Contains flavonoids including icariin, which has been investigated in laboratory research." },
+                  { label: "Panax Ginseng Extract — 300mg (20% Ginsenosides)", text: "A standardised ginseng extract traditionally used for general vitality. Ginsenosides have been investigated for their possible effects on fatigue and cognition, with mixed clinical findings." },
+                ],
+              },
+              {
+                title: "C. Energy & Performance Blend",
+                sub: "470mg Total — 1 Capsule",
+                lead: "The Energy & Performance Blend contains:",
+                items: [
+                  { label: "L-Tyrosine", text: "An amino acid involved in the body’s production of neurotransmitters." },
+                  { label: "Caffeine Anhydrous", text: "A stimulant that can temporarily support alertness and vigilance." },
+                  { label: "L-Theanine", text: "An amino acid studied for its possible effects on attention and relaxation." },
+                  { label: "Rhodiola rosea Extract", text: "A traditional botanical ingredient investigated for possible effects on fatigue and responses to stress." },
+                  { label: "Bitter Orange Extract", text: "A citrus-derived botanical extract included in the blend; its stimulant content requires careful assessment." },
+                ],
+              },
+            ],
+            summaryLabel: "ANDROZAR™ — Product summary",
+            summary:
+              "A comprehensive supplement combining 19 vitamins and minerals, standardised botanical extracts and an energy-focused blend in a convenient five-capsule serving.",
+          },
+          {
+            id: "nitroxar",
+            kicker: "Blood Flow • Endurance • Pump",
+            specs: ["15 Servings", "90 Capsules", "6 Capsules Per Serving"],
+            intro:
+              "NITROXAR™ is a circulation-focused capsule formula combining amino acid and botanical ingredients.",
+            groups: [
+              {
+                items: [
+                  { label: "L-Citrulline — 3,600mg", image: stackCitrulline, text: "An amino acid involved in the body’s natural nitric oxide pathway. It helps supply L-Arginine for nitric oxide production and is widely used in circulation-focused sports nutrition formulations." },
+                  { label: "Beetroot Extract — 600mg", text: "A plant-derived ingredient associated with naturally occurring nitrates and other botanical compounds. Dietary nitrate can participate in the nitrate–nitrite–nitric oxide pathway. The potential contribution of this extract depends on its verified nitrate content." },
+                  { label: "Epimedium Extract — 540mg", text: "A botanical extract containing naturally occurring flavonoids. Included as part of the formula’s botanical profile, with a history of traditional use. Specific athletic-performance benefits have not been established in high-quality human trials." },
+                ],
+              },
+            ],
+            summaryLabel: "NITROXAR™ — Product summary",
+            summary:
+              "A capsule-based formula bringing together L-Citrulline, Beetroot Extract and Epimedium Extract for a circulation-focused supplementation routine.",
+          },
+        ],
+      },
+
+      // 4. Fitness education
+      education: {
+        eyebrow: "Fitness education",
+        heading: "Training perspective",
+        label: "General educational commentary, not an individual professional endorsement.",
+        emphasizeLast: true,
+        paragraphs: [
+          "Consistent physical performance starts with a strong foundation: adequate nutrition, good sleep, hydration and a well-structured training programme.",
+          "Different supplement ingredients serve different purposes. Vitamins and minerals contribute to normal bodily functions, caffeine can temporarily support alertness, and L-Citrulline participates in the body’s nitric oxide pathway.",
+          "The value of a supplement routine comes from understanding how its ingredients fit into an individual’s overall approach to training and wellbeing.",
+          "No supplement replaces consistent exercise, balanced nutrition or adequate recovery.",
+        ],
+      },
+
+      // 5. Why choose
+      why: {
+        eyebrow: "Why choose",
+        heading: "Why choose DOMINANCE STACK™?",
+        subheading: "Two complementary formulas. One convenient routine.",
+        lead: "DOMINANCE STACK™ brings together:",
+        bullets: [
+          "19 essential vitamins and minerals.",
+          "L-Citrulline for nitric oxide pathway support.",
+          "Beetroot Extract and standardised botanical ingredients.",
+          "Panax Ginseng Extract with 20% ginsenosides.",
+          "An energy-focused blend containing caffeine, L-Tyrosine, L-Theanine and Rhodiola rosea.",
+          "Two convenient capsule products for a performance-focused lifestyle.",
+        ],
+        tagline: "Energy. Focus. Blood Flow.",
+        name: "DOMINANCE STACK™",
+        signoff: "Fuel your ambition. Own your performance.",
+      },
+
+      // TODO(safety review): confirm this wording before keeping it live.
+      usageNote: "We suggest taking a break after two months of continuous use.",
+      disclaimer:
+        "Individual results vary. Follow the final product labels. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
     },
     sort_order: 11,
   },
@@ -616,9 +673,13 @@ export const PRODUCTS = [
     inStock: true,
     slug: "alpha-24-stack",
     name: "ALPHA 24 STACK",
-    tagline: "Own your day. Prioritise your night.",
+    tagline: "Vitality • Performance • Recovery",
+    headline: "Bring more to your day. Make time to recover.",
     description:
-      "Own your day. Prioritise your night. Choose the NITROXAR, ANDROZAR and NIGHT RECOVERY bundle to bring your daytime goals and evening wind-down into one focused routine.",
+      "Your routine demands more than a single focus. ALPHA 24 brings NITROXAR, ANDROZAR and NIGHT RECOVERY together in one bundle centred on blood flow, men’s vitality and evening relaxation.",
+    long_description: [
+      "From physical activity to personal wellbeing and your nighttime wind-down, give every part of your routine the attention it deserves.",
+    ],
     category: "stack",
     image: alpha24StackImage,
     price: 129,
@@ -632,11 +693,100 @@ export const PRODUCTS = [
       heading: "What’s in the stack",
       numbered: false,
       items: [
-        { wide: true, name: "ANDROZAR", image: bannerAndrozar, alt: "Testosterone & Men’s Vitality — ANDROZAR", href: "/product/androzar", cta: "View ANDROZAR" },
-        { wide: true, name: "NITROXAR", image: bannerNitroxar, alt: "Nitric Oxide & Blood Flow — NITROXAR", href: "/product/nitroxar", cta: "View NITROXAR" },
-        { wide: true, name: "NIGHT RECOVERY", image: bannerNightRecovery, alt: "Rest. Relax. Recover. — NIGHT RECOVERY", href: "/product/night-recovery", cta: "View NIGHT RECOVERY" },
+        // NITROXAR
+        { wide: true, image: bannerNitroxar, alt: "Nitric Oxide & Blood Flow — NITROXAR" },
+        {
+          name: "NITROXAR — Blood Flow & Physical Performance",
+          image: alpha24PosterNitroxar,
+          alt: "NITROXAR — built around blood flow",
+          width: 1024,
+          height: 1536,
+          paragraphs: [
+            "Built around L-Citrulline, with beetroot and epimedium extracts, NITROXAR focuses on circulation—a key part of delivering oxygen and nutrients to working muscles.",
+          ],
+          list: {
+            label: "Designed to support:",
+            items: [
+              "Healthy blood flow and circulation.",
+              "Muscle pump during exercise.",
+              "Physical performance during demanding activity.",
+            ],
+          },
+          ingredients: [{ src: stackCitrulline, label: "L-Citrulline" }],
+          href: "/product/nitroxar",
+          cta: "View NITROXAR",
+        },
+        // ANDROZAR (new bottle image — the old poster/banner showed the previous formula)
+        {
+          name: "ANDROZAR — Men’s Daily Vitality",
+          image: androzarBottle,
+          alt: "ANDROZAR — Power to Perform",
+          width: 1254,
+          height: 1254,
+          paragraphs: [
+            "Featuring Epimedium, Panax Ginseng and an Energy & Performance Blend, with a daily foundation of vitamins and minerals, ANDROZAR brings a dedicated focus to men’s vitality and everyday wellbeing.",
+          ],
+          list: {
+            label: "Designed for men who prioritise:",
+            items: [
+              "Daily vitality and an active lifestyle.",
+              "Consistency in their wellbeing routine.",
+              "Personal wellbeing beyond the gym.",
+            ],
+          },
+          href: "/product/androzar",
+          cta: "View ANDROZAR",
+        },
+        // NIGHT RECOVERY
+        { wide: true, image: bannerNightRecovery, alt: "Rest. Relax. Recover. — NIGHT RECOVERY" },
+        {
+          name: "NIGHT RECOVERY — Rest & Relaxation",
+          image: alpha24PosterNight,
+          alt: "NIGHT RECOVERY — make time to unwind",
+          width: 1024,
+          height: 1536,
+          paragraphs: [
+            "Your evening deserves the same commitment as your day. Featuring valerian root, magnesium and passionflower, NIGHT RECOVERY is designed to complement your bedtime routine.",
+          ],
+          list: {
+            label: "Designed to support:",
+            items: [
+              "Relaxation as the day comes to an end.",
+              "A calmer transition towards bedtime.",
+              "A consistent nighttime wind-down.",
+            ],
+          },
+          href: "/product/night-recovery",
+          cta: "View NIGHT RECOVERY",
+        },
+        // Closing sections
+        {
+          wide: true,
+          name: "Men’s Wellbeing. A More Personal Focus.",
+          paragraphs: [
+            "Your wellbeing matters in the moments you share, too. Healthy circulation plays a role in normal sexual function, giving blood flow a purpose beyond exercise.",
+            "ALPHA 24 brings this personal side of wellbeing into the picture, alongside everyday vitality and time to unwind. For men who value an active life and a close connection with their partner.",
+          ],
+        },
+        {
+          wide: true,
+          name: "Why choose Alpha 24?",
+          paragraphs: [
+            "Because your goals extend across the whole day.",
+            "NITROXAR focuses on blood flow and physical performance. ANDROZAR focuses on men’s vitality. NIGHT RECOVERY adds a dedicated evening formula.",
+            "Three focused formulas. Clearly disclosed doses. One convenient bundle.",
+          ],
+        },
       ],
+      closing: {
+        heading: "Live stronger. Every day.",
+        cta: "Shop Alpha 24 Stack",
+      },
     },
+    // TODO(safety review): confirm this wording before keeping it live.
+    usage_note: "We suggest taking a break after two months of continuous use.",
+    disclaimer:
+      "Individual results vary. Follow the final product labels. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
     sort_order: 12,
   },
   {
@@ -669,10 +819,13 @@ export const PRODUCTS = [
     inStock: true,
     slug: "performance-stack",
     name: "PERFORMANCE STACK",
+    display_name: "PERFORMANCE STACK™",
     tagline: "EXPLOVEX + CREATINE",
-    headline: "Power your next level.",
+    headline: "Pump. Strength. Performance.",
     description:
-      "Support your training goals with a powerful pairing of EXPLOVEX Pre-Workout and Creatine + Electrolytes—in refreshing Raspberry Lemonade.",
+      "Two powerful formulas. One performance-focused routine — EXPLOVEX Pre-Workout and Creatine Monohydrate together to support nitric oxide pathways and muscular energy production.",
+    meta_description:
+      "KORZAVO PERFORMANCE STACK™ brings together EXPLOVEX Pre-Workout and Pure Creatine Monohydrate to support nitric oxide pathways and muscular energy production.",
     category: "stack",
     image: performanceStackImage,
     price: 94,
@@ -680,24 +833,203 @@ export const PRODUCTS = [
       { id: "explovex", quantity: 1 },
       { id: "creatine", quantity: 1 },
     ],
-    benefits: [
-      "Pump & Performance — Support your muscle pump and get ready for demanding training sessions.",
-      "Strength & Power — Support strength and repeated high-intensity performance with consistent daily creatine use.",
-      "Hydration Support — Added electrolytes complement your hydration routine during training.",
-      "Built for Progress — Pair your stack with consistent training, balanced nutrition, and recovery to work towards your goals.",
-    ],
-    closing_line: "Two products. One goal. Your next level.",
-    story: {
-      eyebrow: "Inside the Stack",
-      heading: "EXPLOVEX + CREATINE",
-      numbered: false,
-      items: [
-        {
-          wide: true,
-          image: performanceStackBanner,
-          alt: "Power your next level. EXPLOVEX plus CREATINE — the Performance Stack.",
-        },
+    landing: {
+      subtitle: "Two Powerful Formulas. One Performance-Focused Routine.",
+      intro: [
+        "The KORZAVO PERFORMANCE STACK™ brings together EXPLOVEX™ Pre-Workout and Pure Creatine Monohydrate to support two essential aspects of training: nitric oxide pathways and muscular energy production.",
+        "Designed for dedicated lifters, fitness enthusiasts, and performance-driven individuals who want to get more from their training.",
       ],
+      gallery: [
+        { src: performanceStackImage, alt: "Performance Stack — EXPLOVEX and Creatine Monohydrate" },
+        { src: explovexBottle, alt: "EXPLOVEX Extreme Pre-Workout" },
+        { src: creatineBottle, alt: "Creatine Monohydrate" },
+      ],
+      trust: [
+        { icon: "package", label: "2 complete formulas" },
+        { icon: "shield", label: "Full ingredient doses" },
+        { icon: "truck", label: "Ships within NZ" },
+      ],
+
+      benefits: {
+        eyebrow: "Benefits",
+        heading: "Six key benefits",
+        items: [
+          {
+            title: "Supports Nitric Oxide Production & Muscle Pump",
+            paragraphs: [
+              "EXPLOVEX™ delivers 6,000mg of L-Citrulline alongside 1,000mg of L-Arginine. These amino acids participate in the body’s nitric oxide production pathway, which helps regulate blood vessel relaxation and circulation.",
+              "This makes EXPLOVEX™ a circulation-focused addition to a pre-workout routine, particularly for individuals seeking a fuller muscle pump during resistance training. Individual responses may vary.",
+            ],
+          },
+          {
+            title: "Enhances Strength & Explosive Power",
+            paragraphs: [
+              "Creatine Monohydrate helps replenish phosphocreatine stores in skeletal muscle, supporting the rapid regeneration of ATP, the energy used during short bursts of high-intensity exercise.",
+              "With consistent daily supplementation, creatine can improve performance during activities such as heavy lifting, sprinting, and repeated explosive movements.",
+            ],
+          },
+          {
+            title: "Supports Training Volume & Workout Capacity",
+            paragraphs: [
+              "Creatine supports repeated high-intensity efforts, potentially helping athletes perform more work across demanding training sessions.",
+              "EXPLOVEX™ complements this approach with ingredients selected for nitric oxide pathways and muscular function, making the stack suitable for strength-focused and high-volume workouts.",
+            ],
+          },
+          {
+            title: "Supports Muscular Function & Exercise Performance",
+            paragraphs: [
+              "Each serving of EXPLOVEX™ provides 3,000mg of Taurine, an amino compound involved in cellular fluid balance and normal muscle function.",
+              "Research suggests Taurine supplementation may provide modest benefits in certain exercise-performance measures, although results vary between individuals and exercise types.",
+            ],
+          },
+          {
+            title: "Supports Muscle Development Through Better Training",
+            paragraphs: [
+              "Creatine supplementation, combined with a consistent resistance-training programme, can support increases in lean mass and strength over time.",
+              "By combining daily creatine with a pre-workout formula, PERFORMANCE STACK™ offers a convenient routine for individuals working towards long-term strength and muscle-development goals.",
+            ],
+          },
+          {
+            title: "Two Complementary Approaches to Performance",
+            paragraphs: [
+              "Rather than focusing on only one aspect of a workout, PERFORMANCE STACK™ combines:",
+            ],
+            bullets: [
+              "Nitric oxide pathway support.",
+              "Rapid muscular energy regeneration.",
+              "Support for repeated high-intensity exercise.",
+              "Muscular function support.",
+              "A convenient pre-workout and daily creatine routine.",
+            ],
+          },
+        ],
+      },
+
+      how: {
+        eyebrow: "How it works",
+        heading: "How PERFORMANCE STACK™ works",
+        steps: [
+          {
+            title: "The nitric oxide pathway",
+            paragraphs: [
+              "L-Citrulline is converted into L-Arginine in the body. Arginine serves as a precursor for nitric oxide, a molecule involved in regulating blood vessel relaxation.",
+              "This pathway is relevant to circulation and the muscle-pump response during exercise, although increased blood flow or pump is not guaranteed.",
+            ],
+          },
+          {
+            title: "Muscular function",
+            paragraphs: [
+              "Taurine participates in processes involving muscle-cell fluid regulation and calcium handling, both important aspects of normal muscular function.",
+              "Supplementation may support some aspects of exercise performance, but benefits are not consistently demonstrated across all types of training.",
+            ],
+          },
+          {
+            title: "Rapid energy regeneration",
+            paragraphs: [
+              "Creatine increases available muscular phosphocreatine stores over time.",
+              "During intense exercise, phosphocreatine helps regenerate ATP, supporting the repeated muscular contractions required for weightlifting, sprinting, and explosive movements.",
+            ],
+          },
+          {
+            title: "Long-term training adaptation",
+            paragraphs: [
+              "Consistent creatine supplementation, alongside progressive resistance training, may help individuals achieve greater training adaptations, including improvements in strength and lean mass.",
+            ],
+          },
+        ],
+        result: {
+          label: "The result",
+          text: "A complementary performance routine combining pre-workout nitric oxide pathway support with evidence-backed creatine supplementation for high-intensity training.",
+        },
+      },
+
+      products: {
+        eyebrow: "The formulas",
+        heading: "Individual product benefits",
+        items: [
+          {
+            id: "explovex",
+            kicker: "Extreme Pre-Workout",
+            specs: ["20 Servings", "300 g", "Unflavoured"],
+            groups: [
+              {
+                items: [
+                  {
+                    label: "6,000mg L-Citrulline",
+                    image: stackCitrulline,
+                    bullets: [
+                      "Supports the body’s nitric oxide production pathway.",
+                      "Contributes to the availability of arginine for nitric oxide synthesis.",
+                      "Designed for circulation-focused pre-workout support.",
+                    ],
+                  },
+                  {
+                    label: "3,000mg Taurine",
+                    image: stackTaurine,
+                    bullets: [
+                      "Supports normal muscular and cellular function.",
+                      "Plays a role in calcium regulation and cellular fluid balance.",
+                      "May help support selected exercise-performance outcomes.",
+                    ],
+                  },
+                  {
+                    label: "1,000mg L-Arginine",
+                    image: stackArginine,
+                    bullets: [
+                      "Serves as a substrate for nitric oxide production.",
+                      "Complements the formula’s nitric oxide-focused ingredient profile.",
+                      "Provides additional arginine, although direct performance benefits at this dose are not established.",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            id: "creatine",
+            kicker: "Strength & Power",
+            specs: ["50 Servings", "300 g", "Unflavoured"],
+            groups: [
+              {
+                items: [
+                  {
+                    label: "Creatine Monohydrate — 5,000mg per serving",
+                    image: stackCreatine,
+                    bullets: [
+                      "Supports rapid ATP regeneration during high-intensity exercise.",
+                      "Improves performance in repeated, short-duration, high-intensity efforts.",
+                      "Supports strength and power development.",
+                      "Helps improve training adaptations when combined with resistance exercise.",
+                      "Can support gains in lean mass alongside consistent resistance training.",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+
+      education: {
+        eyebrow: "Fitness education",
+        heading: "Training perspective",
+        label: "General educational commentary, not an individual professional endorsement.",
+        paragraphs: [
+          "When building a performance-focused training routine, it helps to look at more than just the immediate pre-workout experience. Supporting muscular energy availability and maintaining consistent training quality are important for long-term progress.",
+          "The KORZAVO PERFORMANCE STACK™ combines a citrulline-based pre-workout formula with creatine monohydrate, one of the most extensively researched supplements for high-intensity exercise.",
+          "It’s a practical combination for strength-focused individuals who want to approach their training with consistency and purpose.",
+        ],
+        attribution: "KORZAVO Educational Content",
+      },
+
+      why: {
+        tagline: "Train hard. Build strength. Push your performance.",
+        name: "PERFORMANCE STACK™",
+        signoff: "Two formulas. One goal. A stronger training routine.",
+      },
+
+      disclaimer:
+        "Individual results vary. Follow the final product labels. If pregnant, breastfeeding, taking medication or managing a medical condition, consult a healthcare professional before use.",
     },
     sort_order: 10,
   },

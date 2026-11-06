@@ -4,11 +4,16 @@ const CartContext = createContext(null);
 
 const STORAGE_KEY = "av_cart_v1";
 
+// Products that were discontinued: quietly drop them from carts saved earlier
+// so a returning visitor can't get stuck checking out a page that no longer exists.
+const REMOVED_PRODUCT_IDS = ["korzix", "grow", "glycoload", "complete-stack"];
+
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : [];
+      const saved = raw ? JSON.parse(raw) : [];
+      return Array.isArray(saved) ? saved.filter((i) => !REMOVED_PRODUCT_IDS.includes(i.productId)) : [];
     } catch {
       return [];
     }

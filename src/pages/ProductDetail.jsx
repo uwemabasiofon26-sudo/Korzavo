@@ -11,6 +11,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { researchForIngredient } from "@/lib/ingredientResearch";
 import IngredientStory from "@/components/IngredientStory";
+import StackLanding from "@/components/StackLanding";
 import { useSEO } from "@/hooks/useSEO";
 
 // Search results show ~155-160 characters. Trim the product blurb at a word
@@ -89,6 +90,21 @@ export default function ProductDetail() {
     setTimeout(() => setAdded(false), 1800);
   };
 
+  // Stacks with a `landing` config get the full sales-page layout.
+  if (product.landing) {
+    return (
+      <div className="bg-av-deep pt-24 md:pt-28 pb-12 md:pb-16">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+          <nav className="text-[11px] uppercase tracking-[0.2em] text-av-alloy/40 mb-8">
+            <Link to="/shop" className="hover:text-av-gold">Shop</Link> / <span className="text-av-alloy/70">{product.name}</span>
+          </nav>
+          <StackLanding product={product} all={all || []} onAdd={handleAdd} added={added} />
+        </div>
+        <FuelBar product={product} purchaseType="one_time" price={price} />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-av-deep pt-24 md:pt-28 pb-12 md:pb-16">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
@@ -103,9 +119,13 @@ export default function ProductDetail() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="frame-corner relative overflow-hidden bg-av-teal/20 aspect-[4/5]"
+              className={cn("frame-corner relative overflow-hidden bg-av-teal/20", product.category !== "stack" && "aspect-[4/5]")}
             >
-              <Image src={product.image} alt={product.name} fittingType="fill" className="h-full w-full" />
+              {product.category === "stack" ? (
+                <img src={product.image} alt={product.name} className="w-full h-auto block" />
+              ) : (
+                <Image src={product.image} alt={product.name} fittingType="fill" className="h-full w-full" />
+              )}
             </motion.div>
             {product.supplement_facts_image && (
               // Plain <img>, not the cropping <Image> component: this is a
@@ -246,11 +266,11 @@ export default function ProductDetail() {
 
             {/* SCIENTIFIC RESEARCH — products with their own ingredient story
                 (see IngredientStory below) already cover each ingredient. */}
-            {product.ingredients?.length > 0 && !product.story && (
+            {product.ingredients?.length > 0 && (!product.story || product.show_research) && (
               <div>
                 <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">Scientific Research</h2>
                 <div className="space-y-4">
-                  {product.ingredients
+                  {(product.research_ingredients || product.ingredients)
                     .map((ing) => ({ ing, res: researchForIngredient(ing) }))
                     .filter((x) => x.res)
                     .map((x, i) => (
@@ -267,7 +287,7 @@ export default function ProductDetail() {
         </div>
 
         {/* INGREDIENT STORY (optional, per product) */}
-        <IngredientStory product={product} />
+        <IngredientStory product={product} onCta={handleAdd} />
 
         {/* RELATED */}
         {related.length > 0 && (

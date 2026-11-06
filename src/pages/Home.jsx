@@ -17,9 +17,9 @@ import heroPoster from "@/assets/video/hero-poster.jpg";
 
 const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
-  { t: "Fully disclosed formulas", d: "Every ingredient and dose printed clearly. No proprietary blends hiding under-dosed filler." },
+  { t: "Clearly labelled formulas", d: "Ingredients and amounts listed on every product page, with Supplement Facts on the pack." },
   { t: "Effective, practical dosages", d: "Clinical, functional amounts that actually move the needle session after session." },
-  { t: "Individual or complete stack", d: "Buy what you need, or grab the complete system and save." },
+  { t: "Individual or stacked", d: "Buy what you need, or pick a ready-made stack and save." },
   { t: "Built for consistency", d: "Designed to support long-term progress, not a single hype cycle." },
 ];
 
@@ -39,7 +39,7 @@ function Rating({ value = 4.9, count = 128, className }) {
 export default function Home() {
   useSEO({
     title: "Performance Nutrition & Supplements",
-    description: "Korzavo is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein and recovery formulas — no proprietary blends, ever.",
+    description: "Korzavo is a performance nutrition and supplement brand. Clearly labelled pre-workout, creatine, daily performance and recovery formulas.",
     path: "/",
   });
 
@@ -63,13 +63,6 @@ export default function Home() {
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const featured = supplements;
-  const stack = all.find((p) => p.id === "complete-stack");
-  const stackPrice = stack?.price || 259.99;
-  // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
-  // the line-through price and "Save $X" text separately, so they can't
-  // drift out of sync again.
-  const stackIndividualValue = 323.95;
-  const stackSavings = stackIndividualValue - stackPrice;
 
   return (
     <div className="bg-av-deep">
@@ -181,46 +174,6 @@ export default function Home() {
               </Link>
             </ScrollReveal>
           </div>
-        </div>
-      </section>
-
-      {/* STACK */}
-      <section className="relative py-10 md:py-16 overflow-hidden">
-        <ParallaxText className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-          <span className="font-display text-[20vw] font-black tracking-tighter text-av-teal/25">STACK</span>
-        </ParallaxText>
-        <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
-          <ScrollReveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Korzavo Stack</p>
-            <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
-              One system. Five products. Total performance.
-            </h2>
-            <p className="mt-5 md:mt-6 text-av-alloy/70 leading-relaxed max-w-lg text-sm md:text-base">
-              EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system — supporting preparation, training, nutrition and recovery.
-            </p>
-            <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
-              <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>
-              <span className="text-av-alloy/50 line-through">{formatNZD(stackIndividualValue)}</span>
-              <span className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">Save {formatNZD(stackSavings)}</span>
-            </div>
-            <Rating value={4.9} count={312} className="mt-4" />
-            <Link to="/stack" className="mt-6 md:mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
-              Shop The Stack <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1} className="frame-corner overflow-hidden bg-av-teal/20">
-            {/* Plain <img> at its natural aspect ratio — the stack graphic
-                is a designed collage, so forcing it into a fixed aspect box
-                (as the featured-product photos do) squashed/stretched it. */}
-            {stack && (
-              <img
-                src={stack.image}
-                alt={stack.name}
-                className="w-full h-auto block"
-                loading="lazy"
-              />
-            )}
-          </ScrollReveal>
         </div>
       </section>
 

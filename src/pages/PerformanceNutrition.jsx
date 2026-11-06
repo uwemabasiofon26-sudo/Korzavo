@@ -10,7 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function PerformanceNutrition() {
   useSEO({
     title: "Performance Nutrition Supplements",
-    description: "Explore Korzavo's performance nutrition range — pre-workout, protein, creatine, daily performance and recovery supplements, all fully disclosed with exact dosages.",
+    description: "Explore Korzavo's performance nutrition range — pre-workout, creatine, daily performance and recovery supplements, all clearly labelled with ingredients and amounts on every product page.",
     path: "/performance-nutrition",
   });
 
@@ -73,7 +73,7 @@ export default function PerformanceNutrition() {
         <ScrollReveal>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-av-alloy">Build Your Performance System</h2>
           <p className="mt-4 text-av-alloy/60 max-w-xl mx-auto">
-            Get all five products together as a complete stack and save.
+            Pick a ready-made stack, or build your own, and save.
           </p>
           <Link to="/stack" className="mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
             View The Stack <ArrowUpRight className="h-4 w-4" />

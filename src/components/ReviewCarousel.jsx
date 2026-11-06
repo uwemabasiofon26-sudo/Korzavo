@@ -10,19 +10,13 @@ const REVIEWS = [
     rating: 5,
   },
   {
-    quote: "The stack keeps me consistent for the first time. KORZIX every morning, EXPLOVEX before training — I feel the difference every week.",
+    quote: "The stack keeps me consistent for the first time. ANDROZAR every morning, EXPLOVEX before training — I feel the difference every week.",
     name: "Priya S.",
     role: "CrossFit Athlete",
     rating: 5,
   },
   {
-    quote: "GROW mixes smooth and actually tastes good. 25g of clean protein post-workout has made a real difference to my recovery.",
-    name: "Daniel K.",
-    role: "Bodybuilder",
-    rating: 5,
-  },
-  {
-    quote: "Fully disclosed formulas sold me. I know exactly what I'm putting in my body. That's rare and it matters.",
+    quote: "The clear labelling sold me. I can see what's in every product and that matters.",
     name: "Aroha M.",
     role: "Hybrid Athlete",
     rating: 5,

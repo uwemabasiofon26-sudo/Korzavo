@@ -16,7 +16,7 @@ const FILTERS = [
 export default function Shop() {
   useSEO({
     title: "Shop Supplements & Performance Nutrition",
-    description: "Shop the full Korzavo range — pre-workout, creatine, protein, daily performance and recovery supplements. Fully disclosed formulas, no proprietary blends.",
+    description: "Shop the full Korzavo range — pre-workout, creatine, daily performance and recovery supplements. Clearly labelled formulas.",
     path: "/shop",
   });
 
@@ -40,7 +40,7 @@ export default function Shop() {
             Shop
           </h1>
           <p className="mt-4 text-av-alloy/60 max-w-xl">
-            Performance nutrition, built for people who train with purpose. Buy individually, or grab the complete stack and save.
+            Performance nutrition, built for people who train with purpose. Buy individually, or pick a stack and save.
           </p>
         </ScrollReveal>
 

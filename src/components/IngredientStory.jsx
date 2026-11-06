@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ShieldCheck, ArrowRight, Check } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
 
@@ -7,9 +7,10 @@ import { cn } from "@/lib/utils";
 // columns. Content comes from `product.story` in productData.js — add a
 // `story` (and optionally `guarantee` / `disclaimer`) to a product and this
 // renders automatically.
-export default function IngredientStory({ product }) {
+export default function IngredientStory({ product, onCta }) {
   const { story, guarantee, disclaimer } = product;
   if (!story?.items?.length) return null;
+  let splitCount = 0; // alternates image side across the split (non-wide) items
 
   return (
     <section className="mt-24 md:mt-32" aria-labelledby="ingredient-story-heading">
@@ -46,24 +47,29 @@ export default function IngredientStory({ product }) {
               )}
             </article>
           ) : (
+            (() => {
+              const flip = item.flip ?? splitCount++ % 2 === 1;
+              return (
             <article key={item.name} className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
-              <ScrollReveal className={cn(i % 2 === 1 && "md:order-2")}>
+              <ScrollReveal className={cn(flip && "md:order-2")}>
                 {/* Plain <img>: square, text-bearing artwork that must show uncropped. */}
                 <div className="frame-corner relative overflow-hidden bg-av-teal/20">
                   <img
                     src={item.image}
                     alt={item.alt || `${item.name} — ${product.name}`}
-                    width="1000"
-                    height="1000"
+                    width={item.width || 1000}
+                    height={item.height || 1000}
                     loading="lazy"
                     className="w-full h-auto block"
                   />
                 </div>
               </ScrollReveal>
-              <ScrollReveal delay={0.1} className={cn(i % 2 === 1 && "md:order-1")}>
+              <ScrollReveal delay={0.1} className={cn(flip && "md:order-1")}>
                 <ItemText item={item} index={i} numbered={story.numbered !== false} />
               </ScrollReveal>
             </article>
+              );
+            })()
           )
         )}
       </div>
@@ -75,6 +81,15 @@ export default function IngredientStory({ product }) {
           </h3>
           {story.closing.body && (
             <p className="mt-4 text-av-alloy/70 max-w-xl mx-auto leading-relaxed">{story.closing.body}</p>
+          )}
+          {story.closing.cta && onCta && (
+            <button
+              type="button"
+              onClick={onCta}
+              className="mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
+            >
+              {story.closing.cta} <ArrowRight className="h-4 w-4" />
+            </button>
           )}
         </ScrollReveal>
       )}
@@ -96,6 +111,13 @@ export default function IngredientStory({ product }) {
             )}
           </div>
         </ScrollReveal>
+      )}
+
+      {product.usage_note && (
+        <div className="mt-12 mx-auto max-w-3xl border border-av-teal/50 bg-av-teal/10 px-6 py-5 text-center">
+          <p className="text-[11px] uppercase tracking-[0.25em] text-av-gold mb-1.5">Recommended use</p>
+          <p className="text-sm md:text-base text-av-alloy/85">{product.usage_note.replace(/^Recommended use:\s*/, "")}</p>
+        </div>
       )}
 
       {disclaimer && (
@@ -136,6 +158,31 @@ function ItemText({ item, index, numbered }) {
               </p>
             )
           )}
+        </div>
+      )}
+      {item.list?.items?.length > 0 && (
+        <div className="mt-5">
+          {item.list.label && (
+            <p className="text-[11px] uppercase tracking-[0.25em] text-av-gold/80 mb-2">{item.list.label}</p>
+          )}
+          <ul className="space-y-2 text-av-alloy/80">
+            {item.list.items.map((li) => (
+              <li key={li} className="flex gap-3">
+                <Check className="h-4 w-4 mt-1 shrink-0 text-av-gold" aria-hidden="true" />
+                <span>{li}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {item.ingredients?.length > 0 && (
+        <div className="mt-6 flex flex-wrap gap-4">
+          {item.ingredients.map((ing) => (
+            <figure key={ing.label} className="w-36">
+              <img src={ing.src} alt={ing.label} loading="lazy" className="w-36 h-36 object-cover border border-av-teal/40" />
+              <figcaption className="mt-2 text-[10px] uppercase tracking-[0.2em] text-av-alloy/60">Key ingredient<br /><span className="text-av-alloy/90">{ing.label}</span></figcaption>
+            </figure>
+          ))}
         </div>
       )}
       {item.note && <p className="mt-5 text-sm font-semibold text-av-alloy/90">{item.note}</p>}
