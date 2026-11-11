@@ -105,7 +105,7 @@ export const PRODUCTS = [
       "100% pure creatine monohydrate — 5,000 mg per serving, unflavoured and easy to mix any time of day.",
     category: "supplement",
     image: creatineBottle,
-    price: 44.99,
+    price: 29,
     benefits: [
       "Supports strength and power output",
       "100% pure creatine monohydrate",
@@ -828,7 +828,7 @@ export const PRODUCTS = [
       "KORZAVO PERFORMANCE STACK™ brings together EXPLOVEX Pre-Workout and Pure Creatine Monohydrate to support nitric oxide pathways and muscular energy production.",
     category: "stack",
     image: performanceStackImage,
-    price: 94,
+    price: 79,
     includes: [
       { id: "explovex", quantity: 1 },
       { id: "creatine", quantity: 1 },
